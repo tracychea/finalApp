@@ -159,11 +159,11 @@
 				547BC3FA207F14A600F5D91A /* ingredientList.swift */,
 				547BC3FC207F14DD00F5D91A /* ListTableViewController.swift */,
 				547BC3FE207F150300F5D91A /* IngredientTableViewController.swift */,
+				54D47F3C20928D1700A41D04 /* settingViewController.swift */,
 				54F5D6002096ED33008AD034 /* settingService.swift */,
 				54F5D6022096EF45008AD034 /* GoogleService-Info.plist */,
 				54D47F3F2092AE0E00A41D04 /* Dish */,
 				547BC3F2207EF05500F5D91A /* CalorieViewController.swift */,
-				54D47F3C20928D1700A41D04 /* settingViewController.swift */,
 			);
 			path = Project;
 			sourceTree = "<group>";

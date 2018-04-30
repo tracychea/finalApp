@@ -14,8 +14,8 @@ class LoginViewController: UIViewController {
     @IBOutlet weak var passwordTextField: UITextField!
     override func viewDidLoad() {
         super.viewDidLoad()
-        view.backgroundColor = .gray
-
+        self.view.backgroundColor = settingService.sharedService.backgroundColor;
+        print("This works")
         // Do any additional setup after loading the view.
     }
 

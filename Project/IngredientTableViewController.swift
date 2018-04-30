@@ -14,8 +14,8 @@ class IngredientTableViewController: UITableViewController {
     
     override func viewDidLoad() {
         super.viewDidLoad()
-        createDataModel()
-        
+        self.view.backgroundColor = settingService.sharedService.backgroundColor;
+
         
     }
     

@@ -19,7 +19,7 @@ class SignUpViewController: UIViewController {
     @IBOutlet weak var emailTextField: UITextField!
     override func viewDidLoad() {
         super.viewDidLoad()
-        view.backgroundColor = .gray
+        self.view.backgroundColor = settingService.sharedService.backgroundColor;
 
         // Do any additional setup after loading the view.
     }

@@ -10,15 +10,14 @@ import UIKit
 
 class settingViewController: UIViewController, UIPickerViewDelegate, UIPickerViewDataSource, UITextFieldDelegate {
     
-    struct GlobalVariable{
+    struct GlobalVariable {
         static var myString: String = ""
     }
     @IBOutlet weak var textBox: UITextField!
     @IBOutlet weak var dropMenu: UIPickerView!
-    @IBOutlet weak var fontTester: UILabel!
     
     var colorList = ["Red", "Blue","Gray"]
-    public var font: String = "HelveticaNeue-UltraLight"
+    //public var font: String = "HelveticaNeue-UltraLight"
     
     var sentString: String = ""
     
