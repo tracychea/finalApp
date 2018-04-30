@@ -8,8 +8,24 @@
 
 import UIKit
 import CoreData
+import Firebase
 
 class AddDishViewController: UIViewController, UITableViewDataSource, UITableViewDelegate {
+    /*struct PhotoObject {
+        var image : UIImage!
+        init(_ dict : Dictionary<String, Any>) {
+            image = UIImage(data:
+                Data(base64Encoded: dict["encodedBytes"] as! String)!)
+        }
+        init(image : UIImage!) {
+            self.image = image
+        }
+        func toAnyObject() -> Any {
+            return ["encodedBytes" : UIImageJPEGRepresentation(image, 1.0)?.base64EncodedString() as Any
+                ] as Any
+        }
+    }*/
+
     @IBOutlet weak var dishName: UITextField!
     @IBOutlet weak var ingredientTable: UITableView!
     @IBOutlet weak var imageView: UIImageView!
@@ -129,11 +145,39 @@ class AddDishViewController: UIViewController, UITableViewDataSource, UITableVie
             destinationVC.dish = self.ingredients[selectedRow] as! Dish
         }
     }
-    
+    func toAnyObject(image: UIImage) -> Any {
+        return ["encodedBytes" : UIImageJPEGRepresentation(image, 1.0)?.base64EncodedString() as Any
+            ] as Any
+    }
     
 
-    func saveDish(_ dishName:String){
-        let appDelegate = UIApplication.shared.delegate as! AppDelegate
+    func saveDish(_ sender: Any){
+
+        guard let uid = Auth.auth().currentUser?.uid else {return}
+        let databaseRef = Database.database().reference().child("users/profile/\(uid)"+"/Dish List")
+    
+
+        let dishIngredients = [
+            "ingredients List" : ingredients
+        ]
+        databaseRef.child(dishName.text!).setValue(dishIngredients)
+       
+        let metaData = StorageMetadata()
+        let storageRef = Storage.storage().reference().child("users/profile/\(uid)"+"/Dish List")
+        guard let photo = UIImageJPEGRepresentation(UIImage(named:orderedImages[pageIndex])!, 0.75) else {return}
+        metaData.contentType = "image/jpg"
+        
+        storageRef.putData(photo, metadata: metaData) { metaData, error in
+            if error == nil, metaData != nil {
+                print("Success")
+            } else {
+                print("DIDNT WORK BITCHHH")
+            }
+            
+        }
+      
+        
+        /*let appDelegate = UIApplication.shared.delegate as! AppDelegate
         let managedContext = appDelegate.persistentContainer.viewContext
         let entity = NSEntityDescription.entity(forEntityName: "Dish", in: managedContext)
         let dish = NSManagedObject(entity: entity!, insertInto: managedContext)
@@ -150,6 +194,6 @@ class AddDishViewController: UIViewController, UITableViewDataSource, UITableVie
             NSLog("Unresolved error \(nserror), \(nserror.userInfo)")
             abort()
         }
-        dishes.append(dish)
+        dishes.append(dish)*/
     }
 }

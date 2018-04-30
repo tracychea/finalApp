@@ -28,12 +28,12 @@
 		547BC3FF207F150300F5D91A /* IngredientTableViewController.swift in Sources */ = {isa = PBXBuildFile; fileRef = 547BC3FE207F150300F5D91A /* IngredientTableViewController.swift */; };
 		547BC401207FEC7400F5D91A /* LoginViewController.swift in Sources */ = {isa = PBXBuildFile; fileRef = 547BC400207FEC7400F5D91A /* LoginViewController.swift */; };
 		547BC403207FEDA800F5D91A /* SignUpViewController.swift in Sources */ = {isa = PBXBuildFile; fileRef = 547BC402207FEDA800F5D91A /* SignUpViewController.swift */; };
-		54D47F3D20928D1700A41D04 /* settingViewController.swift in Sources */ = {isa = PBXBuildFile; fileRef = 54D47F3C20928D1700A41D04 /* settingViewController.swift */; };
 		54D47F422092AF9000A41D04 /* AddIngredientViewController.swift in Sources */ = {isa = PBXBuildFile; fileRef = 54D47F412092AF9000A41D04 /* AddIngredientViewController.swift */; };
 		54D47F442092B41000A41D04 /* AddIngredientTableViewCell.swift in Sources */ = {isa = PBXBuildFile; fileRef = 54D47F432092B41000A41D04 /* AddIngredientTableViewCell.swift */; };
 		54D47F482093B2A500A41D04 /* ShowIngredientTableViewCell.swift in Sources */ = {isa = PBXBuildFile; fileRef = 54D47F472093B2A500A41D04 /* ShowIngredientTableViewCell.swift */; };
-		54F5D6012096ED33008AD034 /* settingService.swift in Sources */ = {isa = PBXBuildFile; fileRef = 54F5D6002096ED33008AD034 /* settingService.swift */; };
 		54F5D6032096EF45008AD034 /* GoogleService-Info.plist in Resources */ = {isa = PBXBuildFile; fileRef = 54F5D6022096EF45008AD034 /* GoogleService-Info.plist */; };
+		54F5D6062096FA3C008AD034 /* settingViewController.swift in Sources */ = {isa = PBXBuildFile; fileRef = 54F5D6042096FA3B008AD034 /* settingViewController.swift */; };
+		54F5D6072096FA3C008AD034 /* settingServices.swift in Sources */ = {isa = PBXBuildFile; fileRef = 54F5D6052096FA3C008AD034 /* settingServices.swift */; };
 		71C552D342C4683A438D9974 /* Pods_Project.framework in Frameworks */ = {isa = PBXBuildFile; fileRef = 127707E21DC7B6E339AEB195 /* Pods_Project.framework */; };
 /* End PBXBuildFile section */
 
@@ -84,12 +84,12 @@
 		547BC3FE207F150300F5D91A /* IngredientTableViewController.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = IngredientTableViewController.swift; sourceTree = "<group>"; };
 		547BC400207FEC7400F5D91A /* LoginViewController.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = LoginViewController.swift; sourceTree = "<group>"; };
 		547BC402207FEDA800F5D91A /* SignUpViewController.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = SignUpViewController.swift; sourceTree = "<group>"; };
-		54D47F3C20928D1700A41D04 /* settingViewController.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = settingViewController.swift; sourceTree = "<group>"; };
 		54D47F412092AF9000A41D04 /* AddIngredientViewController.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = AddIngredientViewController.swift; sourceTree = "<group>"; };
 		54D47F432092B41000A41D04 /* AddIngredientTableViewCell.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = AddIngredientTableViewCell.swift; sourceTree = "<group>"; };
 		54D47F472093B2A500A41D04 /* ShowIngredientTableViewCell.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = ShowIngredientTableViewCell.swift; sourceTree = "<group>"; };
-		54F5D6002096ED33008AD034 /* settingService.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = settingService.swift; sourceTree = "<group>"; };
 		54F5D6022096EF45008AD034 /* GoogleService-Info.plist */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = text.plist.xml; path = "GoogleService-Info.plist"; sourceTree = SOURCE_ROOT; };
+		54F5D6042096FA3B008AD034 /* settingViewController.swift */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.swift; name = settingViewController.swift; path = "../../../Library/Messages/Attachments/a6/06/EBC28BBB-748C-412F-9BDF-C6F80160BA56/Project 2/Project/settingViewController.swift"; sourceTree = "<group>"; };
+		54F5D6052096FA3C008AD034 /* settingServices.swift */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.swift; name = settingServices.swift; path = "../../../Library/Messages/Attachments/a6/06/EBC28BBB-748C-412F-9BDF-C6F80160BA56/Project 2/Project/settingServices.swift"; sourceTree = "<group>"; };
 		8155F8F8405093857A1B6578 /* Pods-Project.release.xcconfig */ = {isa = PBXFileReference; includeInIndex = 1; lastKnownFileType = text.xcconfig; name = "Pods-Project.release.xcconfig"; path = "Pods/Target Support Files/Pods-Project/Pods-Project.release.xcconfig"; sourceTree = "<group>"; };
 /* End PBXFileReference section */
 
@@ -144,6 +144,8 @@
 		547BC3B8206C70AB00F5D91A /* Project */ = {
 			isa = PBXGroup;
 			children = (
+				54F5D6052096FA3C008AD034 /* settingServices.swift */,
+				54F5D6042096FA3B008AD034 /* settingViewController.swift */,
 				547BC3B9206C70AB00F5D91A /* AppDelegate.swift */,
 				547BC3BB206C70AB00F5D91A /* ViewController.swift */,
 				547BC3C3206C70AB00F5D91A /* Assets.xcassets */,
@@ -159,8 +161,6 @@
 				547BC3FA207F14A600F5D91A /* ingredientList.swift */,
 				547BC3FC207F14DD00F5D91A /* ListTableViewController.swift */,
 				547BC3FE207F150300F5D91A /* IngredientTableViewController.swift */,
-				54D47F3C20928D1700A41D04 /* settingViewController.swift */,
-				54F5D6002096ED33008AD034 /* settingService.swift */,
 				54F5D6022096EF45008AD034 /* GoogleService-Info.plist */,
 				54D47F3F2092AE0E00A41D04 /* Dish */,
 				547BC3F2207EF05500F5D91A /* CalorieViewController.swift */,
@@ -407,14 +407,15 @@
 			isa = PBXSourcesBuildPhase;
 			buildActionMask = 2147483647;
 			files = (
+				54F5D6072096FA3C008AD034 /* settingServices.swift in Sources */,
 				547BC3BC206C70AB00F5D91A /* ViewController.swift in Sources */,
 				547BC3ED207564C000F5D91A /* DishListTableViewCell.swift in Sources */,
 				547BC3EB207564A900F5D91A /* DishListTableViewController.swift in Sources */,
 				547BC401207FEC7400F5D91A /* LoginViewController.swift in Sources */,
 				547BC3F7207F145200F5D91A /* GroceryTableViewCell.swift in Sources */,
-				54F5D6012096ED33008AD034 /* settingService.swift in Sources */,
 				547BC3FF207F150300F5D91A /* IngredientTableViewController.swift in Sources */,
 				547BC3FD207F14DD00F5D91A /* ListTableViewController.swift in Sources */,
+				54F5D6062096FA3C008AD034 /* settingViewController.swift in Sources */,
 				54D47F422092AF9000A41D04 /* AddIngredientViewController.swift in Sources */,
 				547BC3FB207F14A600F5D91A /* ingredientList.swift in Sources */,
 				547BC3C2206C70AB00F5D91A /* Project.xcdatamodeld in Sources */,
@@ -426,7 +427,6 @@
 				54D47F482093B2A500A41D04 /* ShowIngredientTableViewCell.swift in Sources */,
 				547BC3EF20758BAF00F5D91A /* AddDishViewController.swift in Sources */,
 				547BC3BA206C70AB00F5D91A /* AppDelegate.swift in Sources */,
-				54D47F3D20928D1700A41D04 /* settingViewController.swift in Sources */,
 				547BC3F5207F142C00F5D91A /* IngredientTableViewCell.swift in Sources */,
 			);
 			runOnlyForDeploymentPostprocessing = 0;

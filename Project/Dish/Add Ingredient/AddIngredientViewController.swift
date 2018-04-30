@@ -8,6 +8,7 @@
 
 import UIKit
 import CoreData
+import Firebase
 
 class AddIngredientViewController: UIViewController {
     
@@ -51,7 +52,7 @@ class AddIngredientViewController: UIViewController {
         destinationVC.receiveArray = allIngredients
     }
     
-    @IBAction func addMore(_ sender: UIButton) {
+    @IBAction func addMore(_ sender: Any) {
         
         if ingredientName.text == ""{
             //alert
@@ -67,7 +68,14 @@ class AddIngredientViewController: UIViewController {
             alert.addAction(okAction)
         }
         else{
+            /*guard let uid = Auth.auth().currentUser?.uid else {return}
+            let databaseRef = Database.database().reference().child("users/profile/\(uid)")
             
+            let userObject = [
+                "Dish Name": ingredientName.text!
+                ] as [String: Any]
+            
+            databaseRef.setValue(userObject)*/
             allIngredients.append(ingredientName.text!)
             currentList.text = "\(allIngredients)"
             
