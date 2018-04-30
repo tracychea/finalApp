@@ -8,17 +8,30 @@
 
 import UIKit
 
-class settingViewController: UIViewController {
+class settingViewController: UIViewController, UIPickerViewDelegate, UIPickerViewDataSource, UITextFieldDelegate {
+    
+    struct GlobalVariable{
+        static var myString: String = ""
+    }
     @IBOutlet weak var textBox: UITextField!
     @IBOutlet weak var dropMenu: UIPickerView!
+    @IBOutlet weak var fontTester: UILabel!
     
-    var colorList = ["Red", "Blue","Grey"]
+    var colorList = ["Red", "Blue","Gray"]
+    public var font: String = "HelveticaNeue-UltraLight"
+    
+    var sentString: String = ""
+    
     override func viewDidLoad() {
         super.viewDidLoad()
-
+        self.view.backgroundColor = settingService.sharedService.backgroundColor;
+        
+        
+        
+        
         // Do any additional setup after loading the view.
     }
-
+    
     override func didReceiveMemoryWarning() {
         super.didReceiveMemoryWarning()
         // Dispose of any resources that can be recreated.
@@ -59,4 +72,24 @@ class settingViewController: UIViewController {
         }
         
     }
+    
+    @IBAction func saveSetting(_ sender: Any) {
+        if textBox.text == "Red"{
+            //fontTester.font = UIFont(name: font, size: 21)
+            GlobalVariable.myString = "Red"
+            self.view.backgroundColor = settingService.sharedService.backgroundColor;
+            
+        }
+        if textBox.text == "Blue"{
+            GlobalVariable.myString = "Blue"
+            self.view.backgroundColor = settingService.sharedService.backgroundColor;
+        }
+        if textBox.text == "Gray"{
+            GlobalVariable.myString = "Gray"
+            self.view.backgroundColor = settingService.sharedService.backgroundColor;
+        }
+    }
+    
 }
+
+
