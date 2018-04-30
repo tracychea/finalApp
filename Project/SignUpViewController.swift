@@ -8,6 +8,7 @@
 
 import UIKit
 import CoreData
+import Firebase
 
 class SignUpViewController: UIViewController {
     @IBOutlet weak var firstNameText: UITextField!
@@ -15,6 +16,7 @@ class SignUpViewController: UIViewController {
     @IBOutlet weak var passwordText: UITextField!
     @IBOutlet weak var usernameText: UITextField!
     @IBOutlet weak var lastNameText: UITextField!
+    @IBOutlet weak var emailTextField: UITextField!
     override func viewDidLoad() {
         super.viewDidLoad()
         view.backgroundColor = .gray
@@ -37,7 +39,9 @@ class SignUpViewController: UIViewController {
             (passwordText.text?.isEmpty)! ||
             (passwordText.text == "Password") ||
             (cPasswordText.text?.isEmpty)! ||
-            (cPasswordText.text == "Confirm Password")
+            (cPasswordText.text == "Confirm Password")  ||
+            (emailTextField.text?.isEmpty)! ||
+            (emailTextField.text == "Email")
         {
             //Display Alert Message
             let alert = UIAlertController(title: "ERROR", message: "Not all required fields are filled properly", preferredStyle: .alert)
@@ -53,11 +57,44 @@ class SignUpViewController: UIViewController {
             }
             alert2.addAction(okButton)
         } else {
-            self.saveUserInfo(firstName: firstNameText.text!, lastName: lastNameText.text!, username: usernameText.text!, password: passwordText.text!, cPassword: cPasswordText.text!)
-            let destinationController = storyboard?.instantiateViewController(withIdentifier: "tabBarViewController")
-            present(destinationController!, animated: true, completion: nil)
+            Auth.auth().createUser(withEmail: emailTextField.text!, password: passwordText.text!){ user, error  in
+                if error == nil && user != nil {
+                    print("User created")
+                    
+                    let changeRequest = Auth.auth().currentUser?.createProfileChangeRequest()
+                    changeRequest?.displayName = self.usernameText.text
+                    changeRequest?.commitChanges { error in
+                        if error == nil {
+                            print("Username has been updated!")
+                            //takes back to login screen when successfully signed up
+                            let destinationController = self.storyboard?.instantiateViewController(withIdentifier: "LoginViewController")
+                            self.saveUserProfile(username: self.usernameText.text!) { success in
+                                if success {
+                                    self.dismiss(animated: true, completion: nil)
+                                }
+                            }
+                        } else {
+                            print("ERRRORRR: \(error!.localizedDescription)")
+                        }
+                    }
+                } else {
+                    print("Error BIICCHHHHHHHH: \(error!.localizedDescription)")
+                }
+            }
         }
     }
+    func saveUserProfile(username: String, completion: @escaping((_ success: Bool)->())) {
+        guard let uid = Auth.auth().currentUser?.uid else {return}
+        let databaseRef = Database.database().reference().child("users/profile/\(uid)")
+        
+        let userObject = [
+            "Username": username
+            ] as [String: Any]
+        
+        databaseRef.setValue(userObject) { error, ref in completion(error == nil)
+        }
+    }
+
     func saveUserInfo( firstName: String, lastName: String, username: String, password: String, cPassword: String){
         let appDelegate = UIApplication.shared.delegate as! AppDelegate
         let managedContext = appDelegate.persistentContainer.viewContext

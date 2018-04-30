@@ -13,7 +13,7 @@
         <!--Sign Up View Controller-->
         <scene sceneID="eMl-V1-Yt1">
             <objects>
-                <viewController id="xfG-et-h7r" customClass="SignUpViewController" customModule="Project" customModuleProvider="target" sceneMemberID="viewController">
+                <viewController id="xfG-et-h7r" customClass="SignUpViewController" customModule="Project" sceneMemberID="viewController">
                     <view key="view" contentMode="scaleToFill" id="MDv-8T-0fS">
                         <rect key="frame" x="0.0" y="0.0" width="375" height="667"/>
                         <autoresizingMask key="autoresizingMask" widthSizable="YES" heightSizable="YES"/>
@@ -40,37 +40,45 @@
                                 <textInputTraits key="textInputTraits"/>
                             </textField>
                             <textField opaque="NO" contentMode="scaleToFill" fixedFrame="YES" contentHorizontalAlignment="left" contentVerticalAlignment="center" text="Password" borderStyle="roundedRect" textAlignment="center" clearsOnBeginEditing="YES" minimumFontSize="17" clearButtonMode="whileEditing" translatesAutoresizingMaskIntoConstraints="NO" id="WjH-6B-cZh">
-                                <rect key="frame" x="113" y="285" width="147" height="30"/>
+                                <rect key="frame" x="113" y="328" width="147" height="30"/>
                                 <autoresizingMask key="autoresizingMask" flexibleMaxX="YES" flexibleMaxY="YES"/>
                                 <nil key="textColor"/>
                                 <fontDescription key="fontDescription" type="system" pointSize="14"/>
                                 <textInputTraits key="textInputTraits"/>
                             </textField>
                             <textField opaque="NO" contentMode="scaleToFill" fixedFrame="YES" contentHorizontalAlignment="left" contentVerticalAlignment="center" text="Confirm Password" borderStyle="roundedRect" textAlignment="center" clearsOnBeginEditing="YES" minimumFontSize="17" clearButtonMode="whileEditing" translatesAutoresizingMaskIntoConstraints="NO" id="ZvN-vL-obw">
-                                <rect key="frame" x="114" y="360" width="147" height="30"/>
+                                <rect key="frame" x="114" y="398" width="147" height="30"/>
                                 <autoresizingMask key="autoresizingMask" flexibleMaxX="YES" flexibleMaxY="YES"/>
                                 <nil key="textColor"/>
                                 <fontDescription key="fontDescription" type="system" pointSize="14"/>
                                 <textInputTraits key="textInputTraits"/>
                             </textField>
                             <button opaque="NO" contentMode="scaleToFill" fixedFrame="YES" contentHorizontalAlignment="center" contentVerticalAlignment="center" buttonType="roundedRect" lineBreakMode="middleTruncation" translatesAutoresizingMaskIntoConstraints="NO" id="2yD-4a-fIU">
-                                <rect key="frame" x="134" y="441" width="104" height="30"/>
+                                <rect key="frame" x="134" y="492" width="104" height="30"/>
                                 <autoresizingMask key="autoresizingMask" flexibleMaxX="YES" flexibleMaxY="YES"/>
                                 <state key="normal" title="SIgn me Up"/>
                                 <connections>
                                     <action selector="signUpButton:" destination="xfG-et-h7r" eventType="touchUpInside" id="oLP-fN-osk"/>
                                 </connections>
                             </button>
+                            <textField opaque="NO" contentMode="scaleToFill" fixedFrame="YES" contentHorizontalAlignment="left" contentVerticalAlignment="center" text="Email" borderStyle="roundedRect" textAlignment="center" clearsOnBeginEditing="YES" minimumFontSize="17" clearButtonMode="whileEditing" translatesAutoresizingMaskIntoConstraints="NO" id="Q6r-PA-0F0">
+                                <rect key="frame" x="113" y="276" width="147" height="30"/>
+                                <autoresizingMask key="autoresizingMask" flexibleMaxX="YES" flexibleMaxY="YES"/>
+                                <nil key="textColor"/>
+                                <fontDescription key="fontDescription" type="system" pointSize="14"/>
+                                <textInputTraits key="textInputTraits"/>
+                            </textField>
                         </subviews>
                         <color key="backgroundColor" white="1" alpha="1" colorSpace="custom" customColorSpace="genericGamma22GrayColorSpace"/>
                         <viewLayoutGuide key="safeArea" id="vtq-sl-7qj"/>
                     </view>
                     <connections>
-                        <outlet property="cPasswordText" destination="ZvN-vL-obw" id="Aqm-Xv-UXQ"/>
-                        <outlet property="firstNameText" destination="znr-7I-nbd" id="TRW-lC-gHN"/>
-                        <outlet property="lastNameText" destination="UZb-h4-MSm" id="8e2-Xa-VmP"/>
-                        <outlet property="passwordText" destination="WjH-6B-cZh" id="ZTH-il-OZR"/>
-                        <outlet property="usernameText" destination="ZCB-WQ-umL" id="WtB-IL-why"/>
+                        <outlet property="cPasswordText" destination="ZvN-vL-obw" id="OVQ-Gs-RmM"/>
+                        <outlet property="emailTextField" destination="Q6r-PA-0F0" id="4ex-Oc-Hem"/>
+                        <outlet property="firstNameText" destination="znr-7I-nbd" id="ifN-GZ-2Bv"/>
+                        <outlet property="lastNameText" destination="UZb-h4-MSm" id="MK2-lQ-J82"/>
+                        <outlet property="passwordText" destination="WjH-6B-cZh" id="XXR-i2-Z88"/>
+                        <outlet property="usernameText" destination="ZCB-WQ-umL" id="JUT-on-PP1"/>
                     </connections>
                 </viewController>
                 <placeholder placeholderIdentifier="IBFirstResponder" id="d7K-0j-RZ7" userLabel="First Responder" sceneMemberID="firstResponder"/>
@@ -386,19 +394,19 @@
         <!--Login View Controller-->
         <scene sceneID="C0q-r9-8g5">
             <objects>
-                <viewController storyboardIdentifier="LoginViewController" id="SW8-my-pHS" customClass="LoginViewController" customModule="Project" customModuleProvider="target" sceneMemberID="viewController">
+                <viewController storyboardIdentifier="LoginViewController" id="SW8-my-pHS" customClass="LoginViewController" customModule="Project" sceneMemberID="viewController">
                     <view key="view" contentMode="scaleToFill" id="6z9-PF-Ga6">
                         <rect key="frame" x="0.0" y="0.0" width="375" height="667"/>
                         <autoresizingMask key="autoresizingMask" widthSizable="YES" heightSizable="YES"/>
                         <subviews>
-                            <textField opaque="NO" contentMode="scaleToFill" fixedFrame="YES" contentHorizontalAlignment="left" contentVerticalAlignment="center" text="Username" borderStyle="roundedRect" textAlignment="natural" minimumFontSize="17" translatesAutoresizingMaskIntoConstraints="NO" id="zd4-DV-LsN">
+                            <textField opaque="NO" contentMode="scaleToFill" fixedFrame="YES" contentHorizontalAlignment="left" contentVerticalAlignment="center" text="Email" borderStyle="roundedRect" textAlignment="center" clearsOnBeginEditing="YES" minimumFontSize="17" translatesAutoresizingMaskIntoConstraints="NO" id="zd4-DV-LsN">
                                 <rect key="frame" x="139" y="146" width="97" height="30"/>
                                 <autoresizingMask key="autoresizingMask" flexibleMaxX="YES" flexibleMaxY="YES"/>
                                 <nil key="textColor"/>
                                 <fontDescription key="fontDescription" type="system" pointSize="14"/>
                                 <textInputTraits key="textInputTraits"/>
                             </textField>
-                            <textField opaque="NO" contentMode="scaleToFill" fixedFrame="YES" contentHorizontalAlignment="left" contentVerticalAlignment="center" text="Password" borderStyle="roundedRect" textAlignment="natural" minimumFontSize="17" translatesAutoresizingMaskIntoConstraints="NO" id="DQf-JR-xlm">
+                            <textField opaque="NO" contentMode="scaleToFill" fixedFrame="YES" contentHorizontalAlignment="left" contentVerticalAlignment="center" text="Password" borderStyle="roundedRect" textAlignment="natural" clearsOnBeginEditing="YES" minimumFontSize="17" translatesAutoresizingMaskIntoConstraints="NO" id="DQf-JR-xlm">
                                 <rect key="frame" x="139" y="212" width="97" height="30"/>
                                 <autoresizingMask key="autoresizingMask" flexibleMaxX="YES" flexibleMaxY="YES"/>
                                 <nil key="textColor"/>
@@ -410,7 +418,7 @@
                                 <autoresizingMask key="autoresizingMask" flexibleMaxX="YES" flexibleMaxY="YES"/>
                                 <state key="normal" title="Sign-Up"/>
                                 <connections>
-                                    <segue destination="xfG-et-h7r" kind="show" id="moD-f7-KJ4"/>
+                                    <segue destination="xfG-et-h7r" kind="show" id="4sb-1V-0dt"/>
                                 </connections>
                             </button>
                             <button opaque="NO" contentMode="scaleToFill" fixedFrame="YES" contentHorizontalAlignment="center" contentVerticalAlignment="center" buttonType="roundedRect" lineBreakMode="middleTruncation" translatesAutoresizingMaskIntoConstraints="NO" id="Vrp-Rs-Ib3">
@@ -418,7 +426,8 @@
                                 <autoresizingMask key="autoresizingMask" flexibleMaxX="YES" flexibleMaxY="YES"/>
                                 <state key="normal" title="Login"/>
                                 <connections>
-                                    <segue destination="B07-X7-8qJ" kind="show" id="ZdJ-aU-uz4"/>
+                                    <action selector="loginUserButton:" destination="SW8-my-pHS" eventType="touchUpInside" id="5mc-9z-K6g"/>
+                                    <segue destination="B07-X7-8qJ" kind="show" id="eQR-Oh-Uob"/>
                                 </connections>
                             </button>
                             <button opaque="NO" contentMode="scaleToFill" fixedFrame="YES" contentHorizontalAlignment="center" contentVerticalAlignment="center" buttonType="roundedRect" lineBreakMode="middleTruncation" translatesAutoresizingMaskIntoConstraints="NO" id="bAJ-be-GGl">
@@ -432,8 +441,8 @@
                     </view>
                     <navigationItem key="navigationItem" id="3Yu-KK-6LC"/>
                     <connections>
-                        <outlet property="passwordTextField" destination="6z9-PF-Ga6" id="7FN-xQ-m1q"/>
-                        <outlet property="usernameTextField" destination="zd4-DV-LsN" id="tdu-71-iCO"/>
+                        <outlet property="emailTextField" destination="zd4-DV-LsN" id="9v6-gb-CWq"/>
+                        <outlet property="passwordTextField" destination="DQf-JR-xlm" id="Kc9-zp-x0u"/>
                     </connections>
                 </viewController>
                 <placeholder placeholderIdentifier="IBFirstResponder" id="GB5-8f-Wdc" userLabel="First Responder" sceneMemberID="firstResponder"/>
@@ -744,8 +753,7 @@
         </scene>
     </scenes>
     <inferredMetricsTieBreakers>
-        <segue reference="fE0-wi-46j"/>
         <segue reference="a4S-dt-KYR"/>
-        <segue reference="xy7-Hs-kGm"/>
+        <segue reference="eQR-Oh-Uob"/>
     </inferredMetricsTieBreakers>
 </document>

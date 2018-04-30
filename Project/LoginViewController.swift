@@ -7,11 +7,11 @@
 //
 
 import UIKit
+import Firebase
 
 class LoginViewController: UIViewController {
-    @IBOutlet weak var usernameTextField: UITextField!
-    
-    @IBOutlet var passwordTextField: UIView!
+    @IBOutlet weak var emailTextField: UITextField!
+    @IBOutlet weak var passwordTextField: UITextField!
     override func viewDidLoad() {
         super.viewDidLoad()
         view.backgroundColor = .gray
@@ -23,6 +23,18 @@ class LoginViewController: UIViewController {
         super.didReceiveMemoryWarning()
         // Dispose of any resources that can be recreated.
     }
+    @IBAction func loginUserButton(_ sender: Any) {
+        Auth.auth().signIn(withEmail: emailTextField.text!, password: passwordTextField.text!) { user, error in
+            if error == nil && user != nil {
+                //take to tableviewcontroller
+                let destinationController = self.storyboard?.instantiateViewController(withIdentifier: "tabBarViewController")
+                self.present(destinationController!, animated: true, completion: nil)
+            } else {
+                print("Error logging in: \(error!.localizedDescription)")
+            }
+        }
+    }
+    
     
 
     /*
