@@ -139,7 +139,7 @@
                                             <autoresizingMask key="autoresizingMask" flexibleMaxX="YES" flexibleMaxY="YES"/>
                                             <state key="normal" image="checkBox"/>
                                             <connections>
-                                                <action selector="unCheckButtonWithSender:" destination="XhF-nh-lJj" eventType="touchUpInside" id="pxJ-Pc-a4m"/>
+                                                <action selector="uncheckButton:" destination="XhF-nh-lJj" eventType="touchUpInside" id="rZ8-7F-yfS"/>
                                             </connections>
                                         </button>
                                         <button opaque="NO" contentMode="scaleToFill" fixedFrame="YES" contentHorizontalAlignment="center" contentVerticalAlignment="center" lineBreakMode="middleTruncation" translatesAutoresizingMaskIntoConstraints="NO" id="xST-Rc-S6j" userLabel="box">
@@ -147,15 +147,15 @@
                                             <autoresizingMask key="autoresizingMask" flexibleMaxX="YES" flexibleMaxY="YES"/>
                                             <state key="normal" image="box"/>
                                             <connections>
-                                                <action selector="CheckButtonWithSender:" destination="XhF-nh-lJj" eventType="touchUpInside" id="BkZ-N3-t6W"/>
+                                                <action selector="checkButton:" destination="XhF-nh-lJj" eventType="touchUpInside" id="bvn-DA-cVc"/>
                                             </connections>
                                         </button>
                                     </subviews>
                                 </tableViewCellContentView>
                                 <connections>
-                                    <outlet property="Check" destination="A4w-e6-4kq" id="WgM-Pj-NYw"/>
+                                    <outlet property="check" destination="A4w-e6-4kq" id="gzM-kK-x7V"/>
                                     <outlet property="ingredientList" destination="Mpf-0a-Nz2" id="cfq-9q-a7G"/>
-                                    <outlet property="unCheck" destination="xST-Rc-S6j" id="Kn4-6c-Bm4"/>
+                                    <outlet property="unCheck" destination="xST-Rc-S6j" id="LF5-M6-FIH"/>
                                 </connections>
                             </tableViewCell>
                         </prototypes>
@@ -168,7 +168,7 @@
                 </tableViewController>
                 <placeholder placeholderIdentifier="IBFirstResponder" id="vZf-0f-oKK" userLabel="First Responder" sceneMemberID="firstResponder"/>
             </objects>
-            <point key="canvasLocation" x="255" y="945"/>
+            <point key="canvasLocation" x="253.59999999999999" y="944.97751124437787"/>
         </scene>
         <!--Add Grocery View Controller-->
         <scene sceneID="NU0-rx-8bG">

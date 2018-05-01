@@ -12,31 +12,26 @@ class IngredientTableViewCell: UITableViewCell {
     
     @IBOutlet weak var ingredientList: UILabel!
     
-    @IBOutlet weak var unCheck: UIButton!
-    //var checked = false
-    @IBOutlet weak var Check: UIButton!
+   
     
+    @IBOutlet weak var unCheck: UIButton!
+    @IBOutlet weak var check: UIButton!
     
     func setButtons()
     {
         unCheck.isHidden = true
     }
     
-    @IBAction func CheckButton(sender: AnyObject)
-    {
-        Check.isHidden = true
-        unCheck.isHidden = false
-        
-        //do other stuff
-    }
-    
-    @IBAction func unCheckButton(sender: AnyObject)
-    {
-        Check.isHidden = false
+    @IBAction func checkButton(_ sender: Any) {
+        check.isHidden = false
         unCheck.isHidden = true
-        
-        //do other stuff
     }
+   
+    @IBAction func uncheckButton(_ sender: Any) {
+        check.isHidden = true
+        unCheck.isHidden = false    }
+    
+
     // @IBAction func button(sender: UIButton) {
     
     // button.setImage(UIImage(named: "myImage.png")!, forState: .Normal)
