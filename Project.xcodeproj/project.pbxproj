@@ -34,6 +34,7 @@
 		54F5D6032096EF45008AD034 /* GoogleService-Info.plist in Resources */ = {isa = PBXBuildFile; fileRef = 54F5D6022096EF45008AD034 /* GoogleService-Info.plist */; };
 		54F5D6062096FA3C008AD034 /* settingViewController.swift in Sources */ = {isa = PBXBuildFile; fileRef = 54F5D6042096FA3B008AD034 /* settingViewController.swift */; };
 		54F5D6072096FA3C008AD034 /* settingServices.swift in Sources */ = {isa = PBXBuildFile; fileRef = 54F5D6052096FA3C008AD034 /* settingServices.swift */; };
+		54F5D6092097E6F4008AD034 /* personalProfile.swift in Sources */ = {isa = PBXBuildFile; fileRef = 54F5D6082097E6F4008AD034 /* personalProfile.swift */; };
 		71C552D342C4683A438D9974 /* Pods_Project.framework in Frameworks */ = {isa = PBXBuildFile; fileRef = 127707E21DC7B6E339AEB195 /* Pods_Project.framework */; };
 /* End PBXBuildFile section */
 
@@ -90,6 +91,7 @@
 		54F5D6022096EF45008AD034 /* GoogleService-Info.plist */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = text.plist.xml; path = "GoogleService-Info.plist"; sourceTree = SOURCE_ROOT; };
 		54F5D6042096FA3B008AD034 /* settingViewController.swift */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.swift; name = settingViewController.swift; path = "../../../Library/Messages/Attachments/a6/06/EBC28BBB-748C-412F-9BDF-C6F80160BA56/Project 2/Project/settingViewController.swift"; sourceTree = "<group>"; };
 		54F5D6052096FA3C008AD034 /* settingServices.swift */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.swift; name = settingServices.swift; path = "../../../Library/Messages/Attachments/a6/06/EBC28BBB-748C-412F-9BDF-C6F80160BA56/Project 2/Project/settingServices.swift"; sourceTree = "<group>"; };
+		54F5D6082097E6F4008AD034 /* personalProfile.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = personalProfile.swift; sourceTree = "<group>"; };
 		8155F8F8405093857A1B6578 /* Pods-Project.release.xcconfig */ = {isa = PBXFileReference; includeInIndex = 1; lastKnownFileType = text.xcconfig; name = "Pods-Project.release.xcconfig"; path = "Pods/Target Support Files/Pods-Project/Pods-Project.release.xcconfig"; sourceTree = "<group>"; };
 /* End PBXFileReference section */
 
@@ -164,6 +166,7 @@
 				54F5D6022096EF45008AD034 /* GoogleService-Info.plist */,
 				54D47F3F2092AE0E00A41D04 /* Dish */,
 				547BC3F2207EF05500F5D91A /* CalorieViewController.swift */,
+				54F5D6082097E6F4008AD034 /* personalProfile.swift */,
 			);
 			path = Project;
 			sourceTree = "<group>";
@@ -417,6 +420,7 @@
 				547BC3FD207F14DD00F5D91A /* ListTableViewController.swift in Sources */,
 				54F5D6062096FA3C008AD034 /* settingViewController.swift in Sources */,
 				54D47F422092AF9000A41D04 /* AddIngredientViewController.swift in Sources */,
+				54F5D6092097E6F4008AD034 /* personalProfile.swift in Sources */,
 				547BC3FB207F14A600F5D91A /* ingredientList.swift in Sources */,
 				547BC3C2206C70AB00F5D91A /* Project.xcdatamodeld in Sources */,
 				547BC3F3207EF05500F5D91A /* CalorieViewController.swift in Sources */,

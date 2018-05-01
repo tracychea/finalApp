@@ -11,7 +11,7 @@ import CoreData
 import Firebase
 
 class AddDishViewController: UIViewController, UITableViewDataSource, UITableViewDelegate {
-    /*struct PhotoObject {
+    struct PhotoObject {
         var image : UIImage!
         init(_ dict : Dictionary<String, Any>) {
             image = UIImage(data:
@@ -24,7 +24,7 @@ class AddDishViewController: UIViewController, UITableViewDataSource, UITableVie
             return ["encodedBytes" : UIImageJPEGRepresentation(image, 1.0)?.base64EncodedString() as Any
                 ] as Any
         }
-    }*/
+    }
 
     @IBOutlet weak var dishName: UITextField!
     @IBOutlet weak var ingredientTable: UITableView!
@@ -65,6 +65,11 @@ class AddDishViewController: UIViewController, UITableViewDataSource, UITableVie
         }
         
     }
+    /*func fetchUser() {
+        Database.database().reference().child("user").observe(<#T##eventType: DataEventType##DataEventType#>, andPreviousSiblingKeyWith: <#T##(DataSnapshot, String?) -> Void#>, withCancel: <#T##((Error) -> Void)?##((Error) -> Void)?##(Error) -> Void#>)
+        //Database.database().reference().child("user/profile/\(uid)").observeEventType(.child)
+        
+    }*/
     
 
  
@@ -145,6 +150,15 @@ class AddDishViewController: UIViewController, UITableViewDataSource, UITableVie
             destinationVC.dish = self.ingredients[selectedRow] as! Dish
         }
     }
+    func uploadPhoto () {
+        // NB Image should be a file, it is too big for DB
+        let photo =
+            PhotoObject(image: UIImage(named:orderedImages[pageIndex]))
+        guard let uid = Auth.auth().currentUser?.uid else {return}
+        let databaseRef = Database.database().reference().child("users/profile/\(uid)"+"/Photo")
+        databaseRef.child(dishName.text!).setValue(photo.toAnyObject())
+    }
+    
     func toAnyObject(image: UIImage) -> Any {
         return ["encodedBytes" : UIImageJPEGRepresentation(image, 1.0)?.base64EncodedString() as Any
             ] as Any
@@ -161,8 +175,14 @@ class AddDishViewController: UIViewController, UITableViewDataSource, UITableVie
             "ingredients List" : ingredients
         ]
         databaseRef.child(dishName.text!).setValue(dishIngredients)
+        
+        //trying to save to database
+        uploadPhoto()
        
-        let metaData = StorageMetadata()
+        
+        
+       //this will only add to storage and not data base
+       /* let metaData = StorageMetadata()
         let storageRef = Storage.storage().reference().child("users/profile/\(uid)"+"/Dish List")
         guard let photo = UIImageJPEGRepresentation(UIImage(named:orderedImages[pageIndex])!, 0.75) else {return}
         metaData.contentType = "image/jpg"
@@ -174,7 +194,7 @@ class AddDishViewController: UIViewController, UITableViewDataSource, UITableVie
                 print("DIDNT WORK BITCHHH")
             }
             
-        }
+        } */
       
         
         /*let appDelegate = UIApplication.shared.delegate as! AppDelegate
