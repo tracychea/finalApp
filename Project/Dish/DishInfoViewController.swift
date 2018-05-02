@@ -36,6 +36,7 @@ class DishInfoViewController: UIViewController, UITableViewDataSource, UITableVi
     
     override func viewDidLoad() {
         super.viewDidLoad()
+  
         
         
         //ALL OF THIS IS TABLE VIEW V
@@ -61,21 +62,25 @@ class DishInfoViewController: UIViewController, UITableViewDataSource, UITableVi
         
         //ALL OF THIS IS IMAGE VIEW
         func downloadPhoto () {
-            var dbRef3 = Database.database().reference().child("user/profile/\(uid)/Dish List/\(dish!)/photo")
-                .observe(.value,
-                         with: {
-                            snapshot in
-                            // Swift typing is tough.  Array hack is unholy
-                            // Better is the code in downloadAllPhotos
-                            let outerDict = snapshot.value as? [String:AnyObject]
-                            let photo = PhotoObject(Array(outerDict!)[0].value as! Dictionary<String, Any>)
-                            print(photo)
-                            self.dishImage.image = photo.image
-                })
-        }
+            guard let uid = Auth.auth().currentUser?.uid else {return}
+            var postRef = Database.database().reference().child("users/profile/\(uid)/Dish List/\(dish!)/photo")
+            print(dish!)
+            var refHandle = postRef.observe(.value, with: { (snapshot) in
+                if let preDict = snapshot.value as? [String : AnyObject]{
+                    print(preDict["encodedBytes"]!)
+                    let encodedData = preDict["encodedBytes"] as! String
+                    
+                    let data = Data(base64Encoded: encodedData)
+                    let photo = UIImage(data: data!)
+                    
+                    self.dishImage.image = photo
+                    self.ingredientTable.reloadData()
+                } else {
+                    print("DOesnt work")
+                }
+            })        }
         
-        
-        
+        downloadPhoto()
         /*print(dish?.ingredients)
         var ingredientArray:[String] = dish?.ingredients as! [String]
         for i in ingredientArray{
