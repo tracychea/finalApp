@@ -37,7 +37,9 @@ class IngredientTableViewController: UITableViewController {
                 self.tableView.reloadData()
             } else {
                 print("DOesnt work")
+                
             }
+        self.tableView.reloadData()
         })
         
         
@@ -105,9 +107,38 @@ class IngredientTableViewController: UITableViewController {
     }
     
     @IBAction func deleteIngredient (_ingredientList:Any) {
-        self.deleteFromCoreData()
-        DispatchQueue.main.async {
-            self.tableView!.reloadData()
+        
+        guard let uid = Auth.auth().currentUser?.uid else {return}
+        var postRef = Database.database().reference().child("users/profile/\(uid)/Grocery List")
+        
+        var refHandle = postRef.observe(.value, with: { (snapshot) in
+            if let postDict = snapshot.value as? [String : AnyObject]{
+                print("pls")
+                var childArray = [String]()
+                
+                for i in postDict.keys{
+                    var postpostref = postRef.child(i)
+                    postpostref.removeValue()
+                }
+                
+                self.tableView.reloadData()
+            }else{
+                print("no")
+            }
+            
+            
+        })
+        
+        
+        
+        
+        
+        
+        //self.deleteFromCoreData()
+        //DispatchQueue.main.async {
+        /*guard let uid = Auth.auth().currentUser?.uid else {return}
+        Database.database().reference().child("user/profile/\(uid)/Grocery List").removeValue()
+            self.tableView!.reloadData()*/
             //self.tableView.reloadRowsAtIndexPaths( withRowAnimation: UITableViewRowAnimation.None)
             //      self.IngredientTableViewController.reloadData()
             // let rowNumber: Int = 0
@@ -117,7 +148,7 @@ class IngredientTableViewController: UITableViewController {
             
             //self.tableView.reloadRows(at: [indexPath], with: .automatic)
             
-        }
+        
     }
     func getContext () -> NSManagedObjectContext {
         let appDelegate = UIApplication.shared.delegate as! AppDelegate
