@@ -42,17 +42,15 @@ class DishInfoViewController: UIViewController, UITableViewDataSource, UITableVi
         //ALL OF THIS IS TABLE VIEW V
         guard let uid = Auth.auth().currentUser?.uid else {return}
         var postRef = Database.database().reference().child("users/profile/\(uid)/Dish List/\(dish!)/ingredients List")
-        print(dish!)
+        
         var refHandle = postRef.observe(.value, with: { (snapshot) in
             if let postDict = snapshot.value as? [String : AnyObject]{
-                print(postDict)
+                
                 for i in postDict.keys{
                     self.ingredientsArray.append(String(describing: i))
                 }
                 
                 self.ingredientTable.reloadData()
-            } else {
-                print("DOesnt work")
             }
         })
         self.navigationController?.isNavigationBarHidden = false
@@ -64,10 +62,8 @@ class DishInfoViewController: UIViewController, UITableViewDataSource, UITableVi
         func downloadPhoto () {
             guard let uid = Auth.auth().currentUser?.uid else {return}
             var postRef = Database.database().reference().child("users/profile/\(uid)/Dish List/\(dish!)/photo")
-            print(dish!)
             var refHandle = postRef.observe(.value, with: { (snapshot) in
                 if let preDict = snapshot.value as? [String : AnyObject]{
-                    print(preDict["encodedBytes"]!)
                     let encodedData = preDict["encodedBytes"] as! String
                     
                     let data = Data(base64Encoded: encodedData)
@@ -75,19 +71,11 @@ class DishInfoViewController: UIViewController, UITableViewDataSource, UITableVi
                     
                     self.dishImage.image = photo
                     self.ingredientTable.reloadData()
-                } else {
-                    print("DOesnt work")
                 }
             })        }
         
         downloadPhoto()
-        /*print(dish?.ingredients)
-        var ingredientArray:[String] = dish?.ingredients as! [String]
-        for i in ingredientArray{
-            ingredientsArray.append(i)
-        }*/
-
-        // Do any additional setup after loading the view.
+        
     }
 
     override func didReceiveMemoryWarning() {
@@ -118,15 +106,29 @@ class DishInfoViewController: UIViewController, UITableViewDataSource, UITableVi
         return cell
     }
     
-
-    /*
+    
+    /*@IBAction func addToGrocery(_ sender: Any) {
+        let destinationVC = AddGroceryViewController()
+        destinationVC.appendList = self.ingredientsArray
+        
+        
+        /*let destinationController = self.storyboard?.instantiateViewController(withIdentifier: "AddGroceryViewController")
+        destinationController.appendList = self.ingredientsArray*/
+        print("pressed")
+    }*/
+    
+    
     // MARK: - Navigation
 
     // In a storyboard-based application, you will often want to do a little preparation before navigation
     override func prepare(for segue: UIStoryboardSegue, sender: Any?) {
-        // Get the new view controller using segue.destinationViewController.
-        // Pass the selected object to the new view controller.
+    
+        
+        //segue from this controller to person view controller, sending in person according to row selection
+        let destinationVC = segue.destination as! AddGroceryViewController
+        destinationVC.appendList = self.ingredientsArray
+    
     }
-    */
+    
 
 }

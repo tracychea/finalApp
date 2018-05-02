@@ -173,7 +173,7 @@
         <!--Add Grocery View Controller-->
         <scene sceneID="NU0-rx-8bG">
             <objects>
-                <viewController id="L3p-2U-yaF" customClass="AddGroceryViewController" customModule="Project" customModuleProvider="target" sceneMemberID="viewController">
+                <viewController storyboardIdentifier="AddGroceryViewController" id="L3p-2U-yaF" customClass="AddGroceryViewController" customModule="Project" customModuleProvider="target" sceneMemberID="viewController">
                     <view key="view" contentMode="scaleToFill" id="7AH-im-AkK">
                         <rect key="frame" x="0.0" y="0.0" width="375" height="667"/>
                         <autoresizingMask key="autoresizingMask" widthSizable="YES" heightSizable="YES"/>
@@ -406,7 +406,7 @@
                 </viewController>
                 <placeholder placeholderIdentifier="IBFirstResponder" id="DMt-IH-pn8" userLabel="First Responder" sceneMemberID="firstResponder"/>
             </objects>
-            <point key="canvasLocation" x="3511" y="853"/>
+            <point key="canvasLocation" x="2668" y="-1083"/>
         </scene>
         <!--Login View Controller-->
         <scene sceneID="C0q-r9-8g5">
@@ -659,7 +659,7 @@
                 </viewController>
                 <placeholder placeholderIdentifier="IBFirstResponder" id="9ar-aQ-0fG" userLabel="First Responder" sceneMemberID="firstResponder"/>
             </objects>
-            <point key="canvasLocation" x="3844" y="-143.47826086956522"/>
+            <point key="canvasLocation" x="1606" y="-143"/>
         </scene>
         <!--Add Ingredient View Controller-->
         <scene sceneID="eVz-DK-a9g">
@@ -731,7 +731,7 @@
                 </viewController>
                 <placeholder placeholderIdentifier="IBFirstResponder" id="wZN-Yn-JDc" userLabel="First Responder" sceneMemberID="firstResponder"/>
             </objects>
-            <point key="canvasLocation" x="4796" y="-143.47826086956522"/>
+            <point key="canvasLocation" x="2705" y="-143"/>
         </scene>
         <!--Dish Info View Controller-->
         <scene sceneID="udJ-Jj-9ZG">
@@ -789,6 +789,9 @@
                                                 <rect key="frame" x="255" y="7" width="104" height="30"/>
                                                 <autoresizingMask key="autoresizingMask" flexibleMaxX="YES" flexibleMaxY="YES"/>
                                                 <state key="normal" title="Add to Grocery"/>
+                                                <connections>
+                                                    <segue destination="L3p-2U-yaF" kind="show" id="hhd-1B-26w"/>
+                                                </connections>
                                             </button>
                                         </barButtonItem>
                                     </navigationItem>
@@ -806,7 +809,7 @@
                 </viewController>
                 <placeholder placeholderIdentifier="IBFirstResponder" id="Ags-1X-48X" userLabel="First Responder" sceneMemberID="firstResponder"/>
             </objects>
-            <point key="canvasLocation" x="1390" y="-143"/>
+            <point key="canvasLocation" x="1332" y="-840"/>
         </scene>
         <!--Navigation Controller-->
         <scene sceneID="SWV-z4-7wT">
@@ -832,9 +835,10 @@
         <image name="checkBox" width="512" height="512"/>
     </resources>
     <inferredMetricsTieBreakers>
-        <segue reference="cGr-46-MoM"/>
+        <segue reference="a4S-dt-KYR"/>
         <segue reference="coH-3a-YdD"/>
         <segue reference="u7c-Om-eUE"/>
+        <segue reference="Udf-xp-qJx"/>
         <segue reference="E3t-zI-m6o"/>
     </inferredMetricsTieBreakers>
 </document>
