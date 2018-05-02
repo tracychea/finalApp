@@ -24,7 +24,6 @@ class DishListTableViewController: UITableViewController {
         super.viewDidLoad()
         self.view.backgroundColor = settingService.sharedService.backgroundColor;
         guard let uid = Auth.auth().currentUser?.uid else {return}
-        print("HI")
         var postRef = Database.database().reference().child("users/profile/\(uid)/Dish List")
         var refHandle = postRef.observe(.value, with: { (snapshot) in
             if let postDict = snapshot.value as? [String : AnyObject]{
@@ -148,7 +147,7 @@ class DishListTableViewController: UITableViewController {
             
             //segue from this controller to person view controller, sending in person according to row selection
             let destinationVC = segue.destination as! DishInfoViewController
-            destinationVC.dish = self.dishes[selectedRow] as! Dish
+            destinationVC.dish = self.dishes[selectedRow]
         }
     
     }

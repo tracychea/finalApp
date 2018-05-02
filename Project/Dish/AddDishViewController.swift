@@ -138,13 +138,13 @@ class AddDishViewController: UIViewController, UITableViewDataSource, UITableVie
 
     // In a storyboard-based application, you will often want to do a little preparation before navigation
     override func prepare(for segue: UIStoryboardSegue, sender: Any?) {
-        if let indexPath = ingredientTable.indexPathForSelectedRow{
+        /*if let indexPath = ingredientTable.indexPathForSelectedRow{
             let selectedRow = indexPath.row
             
             //segue from this controller to person view controller, sending in person according to row selection
             let destinationVC = segue.destination as! DishInfoViewController
             destinationVC.dish = self.ingredients[selectedRow] as! Dish
-        }
+        }*/
     }
     func uploadPhoto () {
         // NB Image should be a file, it is too big for DB
@@ -170,11 +170,21 @@ class AddDishViewController: UIViewController, UITableViewDataSource, UITableVie
         let dishIngredients = [
             "ingredients List" : ingredients
         ]
-        databaseRef.child(dishName.text!).setValue(dishIngredients)
+        
+       
+        databaseRef.child(dishName.text!)
+        
+        //databaseRef.child(dishName.text!).setValue(dishIngredients)
         
         //trying to save to database
         uploadPhoto()
-       
+        for i in ingredients{
+            let databaseRef2 = Database.database().reference().child("users/profile/\(uid)/Dish List/\(dishName.text!)"+"/ingredients List")
+            
+            databaseRef2.updateChildValues([i:""])
+            databaseRef2.child(i).updateChildValues([i:""])
+            
+        }
         
         
        //this will only add to storage and not data base
