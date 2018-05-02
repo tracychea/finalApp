@@ -19,6 +19,7 @@ class CalorieViewController: UIViewController {
     
     override func viewDidLoad() {
         super.viewDidLoad()
+        self.view.backgroundColor = settingService.sharedService.backgroundColor;
 
         // Do any additional setup after loading the view.
     }

@@ -21,6 +21,7 @@ class IngredientTableViewController: UITableViewController {
     var itemToDelete = String()
     override func viewDidLoad() {
         super.viewDidLoad()
+        self.view.backgroundColor = settingService.sharedService.backgroundColor;
         //var image : UIImage = UIImage(named:"box")!
         //checkImage = UIImageView(image: image)
         

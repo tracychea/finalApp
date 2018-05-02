@@ -40,10 +40,13 @@ class AddDishViewController: UIViewController, UITableViewDataSource, UITableVie
     private var ingredients: [String] = []
     var receiveArray: [String]?
     
-    
+    let users = [Users]()
     
     override func viewDidLoad() {
         super.viewDidLoad()
+        //createDataSource()
+        
+      
         
         ingredientTable.delegate = self
         ingredientTable.dataSource = self
@@ -65,14 +68,7 @@ class AddDishViewController: UIViewController, UITableViewDataSource, UITableVie
         }
         
     }
-    /*func fetchUser() {
-        Database.database().reference().child("user").observe(<#T##eventType: DataEventType##DataEventType#>, andPreviousSiblingKeyWith: <#T##(DataSnapshot, String?) -> Void#>, withCancel: <#T##((Error) -> Void)?##((Error) -> Void)?##(Error) -> Void#>)
-        //Database.database().reference().child("user/profile/\(uid)").observeEventType(.child)
-        
-    }*/
-    
 
- 
     func tableView(_ tableView: UITableView, numberOfRowsInSection section: Int) -> Int {
         return self.ingredients.count
     }

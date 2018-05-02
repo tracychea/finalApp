@@ -29,10 +29,11 @@
 		54D47F442092B41000A41D04 /* AddIngredientTableViewCell.swift in Sources */ = {isa = PBXBuildFile; fileRef = 54D47F432092B41000A41D04 /* AddIngredientTableViewCell.swift */; };
 		54D47F482093B2A500A41D04 /* ShowIngredientTableViewCell.swift in Sources */ = {isa = PBXBuildFile; fileRef = 54D47F472093B2A500A41D04 /* ShowIngredientTableViewCell.swift */; };
 		54F5D6032096EF45008AD034 /* GoogleService-Info.plist in Resources */ = {isa = PBXBuildFile; fileRef = 54F5D6022096EF45008AD034 /* GoogleService-Info.plist */; };
-		54F5D6062096FA3C008AD034 /* settingViewController.swift in Sources */ = {isa = PBXBuildFile; fileRef = 54F5D6042096FA3B008AD034 /* settingViewController.swift */; };
 		54F5D6072096FA3C008AD034 /* settingServices.swift in Sources */ = {isa = PBXBuildFile; fileRef = 54F5D6052096FA3C008AD034 /* settingServices.swift */; };
 		54F5D6092097E6F4008AD034 /* personalProfile.swift in Sources */ = {isa = PBXBuildFile; fileRef = 54F5D6082097E6F4008AD034 /* personalProfile.swift */; };
 		54F5D60B2098174E008AD034 /* AddGroceryViewController.swift in Sources */ = {isa = PBXBuildFile; fileRef = 54F5D60A2098174D008AD034 /* AddGroceryViewController.swift */; };
+		54F5D60D20991E2B008AD034 /* Users.swift in Sources */ = {isa = PBXBuildFile; fileRef = 54F5D60C20991E2B008AD034 /* Users.swift */; };
+		54F5D60F20993919008AD034 /* settingViewController.swift in Sources */ = {isa = PBXBuildFile; fileRef = 54F5D60E20993919008AD034 /* settingViewController.swift */; };
 		71C552D342C4683A438D9974 /* Pods_Project.framework in Frameworks */ = {isa = PBXBuildFile; fileRef = 127707E21DC7B6E339AEB195 /* Pods_Project.framework */; };
 /* End PBXBuildFile section */
 
@@ -84,10 +85,11 @@
 		54D47F432092B41000A41D04 /* AddIngredientTableViewCell.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = AddIngredientTableViewCell.swift; sourceTree = "<group>"; };
 		54D47F472093B2A500A41D04 /* ShowIngredientTableViewCell.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = ShowIngredientTableViewCell.swift; sourceTree = "<group>"; };
 		54F5D6022096EF45008AD034 /* GoogleService-Info.plist */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = text.plist.xml; path = "GoogleService-Info.plist"; sourceTree = SOURCE_ROOT; };
-		54F5D6042096FA3B008AD034 /* settingViewController.swift */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.swift; name = settingViewController.swift; path = "../../../Library/Messages/Attachments/a6/06/EBC28BBB-748C-412F-9BDF-C6F80160BA56/Project 2/Project/settingViewController.swift"; sourceTree = "<group>"; };
 		54F5D6052096FA3C008AD034 /* settingServices.swift */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.swift; name = settingServices.swift; path = "../../../Library/Messages/Attachments/a6/06/EBC28BBB-748C-412F-9BDF-C6F80160BA56/Project 2/Project/settingServices.swift"; sourceTree = "<group>"; };
 		54F5D6082097E6F4008AD034 /* personalProfile.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = personalProfile.swift; sourceTree = "<group>"; };
 		54F5D60A2098174D008AD034 /* AddGroceryViewController.swift */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.swift; name = AddGroceryViewController.swift; path = "../../../Library/Messages/Attachments/ef/15/2C67196C-DC05-4F00-B20C-3B1FB9558E70/Project 3 final/Project/AddGroceryViewController.swift"; sourceTree = "<group>"; };
+		54F5D60C20991E2B008AD034 /* Users.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = Users.swift; sourceTree = "<group>"; };
+		54F5D60E20993919008AD034 /* settingViewController.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = settingViewController.swift; sourceTree = "<group>"; };
 		8155F8F8405093857A1B6578 /* Pods-Project.release.xcconfig */ = {isa = PBXFileReference; includeInIndex = 1; lastKnownFileType = text.xcconfig; name = "Pods-Project.release.xcconfig"; path = "Pods/Target Support Files/Pods-Project/Pods-Project.release.xcconfig"; sourceTree = "<group>"; };
 /* End PBXFileReference section */
 
@@ -144,7 +146,6 @@
 			children = (
 				54F5D60A2098174D008AD034 /* AddGroceryViewController.swift */,
 				54F5D6052096FA3C008AD034 /* settingServices.swift */,
-				54F5D6042096FA3B008AD034 /* settingViewController.swift */,
 				547BC3B9206C70AB00F5D91A /* AppDelegate.swift */,
 				547BC3BB206C70AB00F5D91A /* ViewController.swift */,
 				547BC3C3206C70AB00F5D91A /* Assets.xcassets */,
@@ -161,6 +162,8 @@
 				54D47F3F2092AE0E00A41D04 /* Dish */,
 				547BC3F2207EF05500F5D91A /* CalorieViewController.swift */,
 				54F5D6082097E6F4008AD034 /* personalProfile.swift */,
+				54F5D60C20991E2B008AD034 /* Users.swift */,
+				54F5D60E20993919008AD034 /* settingViewController.swift */,
 			);
 			path = Project;
 			sourceTree = "<group>";
@@ -410,16 +413,17 @@
 				547BC3EB207564A900F5D91A /* DishListTableViewController.swift in Sources */,
 				547BC401207FEC7400F5D91A /* LoginViewController.swift in Sources */,
 				547BC3FF207F150300F5D91A /* IngredientTableViewController.swift in Sources */,
-				54F5D6062096FA3C008AD034 /* settingViewController.swift in Sources */,
 				54D47F422092AF9000A41D04 /* AddIngredientViewController.swift in Sources */,
 				54F5D6092097E6F4008AD034 /* personalProfile.swift in Sources */,
 				547BC3FB207F14A600F5D91A /* ingredientList.swift in Sources */,
 				547BC3C2206C70AB00F5D91A /* Project.xcdatamodeld in Sources */,
 				547BC3F3207EF05500F5D91A /* CalorieViewController.swift in Sources */,
 				547BC403207FEDA800F5D91A /* SignUpViewController.swift in Sources */,
+				54F5D60D20991E2B008AD034 /* Users.swift in Sources */,
 				54D47F442092B41000A41D04 /* AddIngredientTableViewCell.swift in Sources */,
 				547BC3F1207596EE00F5D91A /* DishInfoViewController.swift in Sources */,
 				54F5D60B2098174E008AD034 /* AddGroceryViewController.swift in Sources */,
+				54F5D60F20993919008AD034 /* settingViewController.swift in Sources */,
 				54D47F482093B2A500A41D04 /* ShowIngredientTableViewCell.swift in Sources */,
 				547BC3EF20758BAF00F5D91A /* AddDishViewController.swift in Sources */,
 				547BC3BA206C70AB00F5D91A /* AppDelegate.swift in Sources */,

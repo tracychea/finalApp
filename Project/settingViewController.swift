@@ -2,32 +2,29 @@
 //  settingViewController.swift
 //  Project
 //
-//  Created by Tracy Chea on 4/26/18.
+//  Created by Tracy Chea on 5/1/18.
 //  Copyright © 2018 Tracy Chea. All rights reserved.
 //
 
 import UIKit
 
-class settingViewController: UIViewController, UIPickerViewDelegate, UIPickerViewDataSource, UITextFieldDelegate {
+class settingViewController: UIViewController,UIPickerViewDelegate,UIPickerViewDataSource,UITextFieldDelegate {
+
+    @IBOutlet weak var textBox: UITextField!
+    @IBOutlet weak var dropMenu: UIPickerView!
     
     struct GlobalVariable{
         static var myString: String = ""
     }
-    @IBOutlet weak var textBox: UITextField!
-    @IBOutlet weak var dropMenu: UIPickerView!
-    @IBOutlet weak var fontTester: UILabel!
-    
     var colorList = ["Red", "Blue","Gray"]
     public var font: String = "HelveticaNeue-UltraLight"
     
     var sentString: String = ""
     
+    
     override func viewDidLoad() {
         super.viewDidLoad()
         self.view.backgroundColor = settingService.sharedService.backgroundColor;
-        
-    
-
 
         // Do any additional setup after loading the view.
     }
@@ -37,6 +34,7 @@ class settingViewController: UIViewController, UIPickerViewDelegate, UIPickerVie
         // Dispose of any resources that can be recreated.
     }
     
+
     public func numberOfComponents(in pickerView: UIPickerView) -> Int{
         return 1
         
@@ -72,13 +70,13 @@ class settingViewController: UIViewController, UIPickerViewDelegate, UIPickerVie
         }
         
     }
-
+    
     @IBAction func saveSetting(_ sender: Any) {
         if textBox.text == "Red"{
-          //fontTester.font = UIFont(name: font, size: 21)
+            //fontTester.font = UIFont(name: font, size: 21)
             GlobalVariable.myString = "Red"
             self.view.backgroundColor = settingService.sharedService.backgroundColor;
-
+            
         }
         if textBox.text == "Blue"{
             GlobalVariable.myString = "Blue"
@@ -88,8 +86,16 @@ class settingViewController: UIViewController, UIPickerViewDelegate, UIPickerVie
             GlobalVariable.myString = "Gray"
             self.view.backgroundColor = settingService.sharedService.backgroundColor;
         }
+        
     }
-    
+    /*
+    // MARK: - Navigation
+
+    // In a storyboard-based application, you will often want to do a little preparation before navigation
+    override func prepare(for segue: UIStoryboardSegue, sender: Any?) {
+        // Get the new view controller using segue.destinationViewController.
+        // Pass the selected object to the new view controller.
+    }
+    */
+
 }
-
-
