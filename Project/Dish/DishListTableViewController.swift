@@ -11,54 +11,34 @@ import CoreData
 import Firebase
 
 class DishListTableViewController: UITableViewController {
-    let reuseIdentifier = "reuseIdentifier"
     
     
-    var dishes = [populateDishList]()
+    
+    private var dishes: [String] = []
+    var dishes2: [String] = []
+    
+    var databaseHandle: DatabaseHandle?
 
     override func viewDidLoad() {
+        
         super.viewDidLoad()
         self.view.backgroundColor = settingService.sharedService.backgroundColor;
         guard let uid = Auth.auth().currentUser?.uid else {return}
-        var refUsers = Database.database().reference().child("users/profile/\(uid)");
-        
-        //observing the data changes
-        refUsers.observe(DataEventType.value, with: { (snapshot) in
-            
-            //if the reference have some values
-            if snapshot.childrenCount > 0 {
-                print("THis works")
-                
-                //clearing the list
-                self.dishes.removeAll()
-                
-                //iterating through all the values
-                for users in snapshot.children.allObjects as! [DataSnapshot] {
-                    //getting values
-                  
-                    let dishObject = users.value as? [String: AnyObject]
-                    let dishName  = dishObject?["Dish List"]
-                    print(dishName)
-                    
-                    //creating artist object with model and fetched values
-                    let dish = populateDishList(dishList: dishName as! String?)
-                    
-                    //appending it to list
-                    self.dishes.append(dish)
+        print("HI")
+        var postRef = Database.database().reference().child("users/profile/\(uid)/Dish List")
+        var refHandle = postRef.observe(.value, with: { (snapshot) in
+            if let postDict = snapshot.value as? [String : AnyObject]{
+                for i in postDict.keys{
+                    self.dishes.append(i)
                 }
-                
-                //reloading the tableview
+               
                 self.tableView.reloadData()
+            } else {
+                print("DOesnt work")
             }
         })
-        // Uncomment the following line to preserve selection between presentations
-        // self.clearsSelectionOnViewWillAppear = false
-
-        // Uncomment the following line to display an Edit button in the navigation bar for this view controller.
-        // self.navigationItem.rightBarButtonItem = self.editButtonItem
+    
     }
-    
-    
     
     override func viewWillAppear(_ animated: Bool) {
         super.viewWillAppear(animated)
@@ -104,20 +84,20 @@ class DishListTableViewController: UITableViewController {
 
     
     override func tableView(_ tableView: UITableView, cellForRowAt indexPath: IndexPath) -> UITableViewCell {
-        //let cell = tableView.dequeueReusableCell(withIdentifier: "reuseIdentifier", for: indexPath)
-
-        guard let cell = tableView.dequeueReusableCell(withIdentifier: reuseIdentifier, for: indexPath) as? DishListTableViewCell
-            else {
-                fatalError("The dequeued cell is not an instance of PeopleTableViewCell")
+        //use tableviewcell to view cells
+        let cellIdentifier = "DishNameIdentifier"
+        //displays info in table view cell
+        guard let cell = tableView.dequeueReusableCell(withIdentifier: cellIdentifier, for: indexPath) as? DishListTableViewCell else {
+            fatalError("The dequeued cell is not an instance of PeopleTableViewCell")
         }
         
-        // Configure the cell...
-        let dish: populateDishList
-        dish = dishes[indexPath.row]
-        cell.dishName.text = dish.dishList
+        //set person according to row number
+        let dish = self.dishes[indexPath.row]
+        
+        //replace cell with person name
+        cell.dishName.text = dish
         
         return cell
-        
     }
     
 
@@ -160,7 +140,7 @@ class DishListTableViewController: UITableViewController {
     // MARK: - Navigation
 
     // In a storyboard-based application, you will often want to do a little preparation before navigation
-    override func prepare(for segue: UIStoryboardSegue, sender: Any?) {
+    /*override func prepare(for segue: UIStoryboardSegue, sender: Any?) {
         // Get the new view controller using segue.destinationViewController.
         // Pass the selected object to the new view controller.
         if let indexPath = tableView.indexPathForSelectedRow{
@@ -171,7 +151,7 @@ class DishListTableViewController: UITableViewController {
             destinationVC.dish = self.dishes[selectedRow] as! Dish
         }
     
-    }
-    
+    }*/
+
 
 }

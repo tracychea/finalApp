@@ -235,7 +235,7 @@
                             </items>
                         </navigationBar>
                         <prototypes>
-                            <tableViewCell clipsSubviews="YES" contentMode="scaleToFill" preservesSuperviewLayoutMargins="YES" selectionStyle="default" indentationWidth="10" reuseIdentifier="reuseIdentifier" rowHeight="61" id="V8j-ml-iJz" customClass="DishListTableViewCell" customModule="Project" customModuleProvider="target">
+                            <tableViewCell clipsSubviews="YES" contentMode="scaleToFill" preservesSuperviewLayoutMargins="YES" selectionStyle="default" indentationWidth="10" reuseIdentifier="DishNameIdentifier" rowHeight="61" id="V8j-ml-iJz" customClass="DishListTableViewCell" customModule="Project" customModuleProvider="target">
                                 <rect key="frame" x="0.0" y="72" width="375" height="61"/>
                                 <autoresizingMask key="autoresizingMask"/>
                                 <tableViewCellContentView key="contentView" opaque="NO" clipsSubviews="YES" multipleTouchEnabled="YES" contentMode="center" preservesSuperviewLayoutMargins="YES" insetsLayoutMarginsFromSafeArea="NO" tableViewCell="V8j-ml-iJz" id="XqX-ij-GUC">
@@ -252,7 +252,7 @@
                                     </subviews>
                                 </tableViewCellContentView>
                                 <connections>
-                                    <outlet property="dishName" destination="4yY-t6-Lt0" id="zoc-Eh-RGi"/>
+                                    <outlet property="dishName" destination="4yY-t6-Lt0" id="LUj-h1-dIE"/>
                                     <segue destination="ahH-SO-VEU" kind="show" id="zHa-yq-86H"/>
                                 </connections>
                             </tableViewCell>
