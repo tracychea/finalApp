@@ -35,16 +35,34 @@ class IngredientTableViewController: UITableViewController {
                 }
                 
                 self.tableView.reloadData()
+                
             } else {
                 print("DOesnt work")
+               
+                for i in 0...1{
+                    Database.database().reference().child("users/profile/\(uid)/Grocery List").setValue("Grocery List")
+                    continue
+                }
+                
                 
             }
         self.tableView.reloadData()
         })
-        
+        /*var testHandle = postRef.observe(.value, with: { (snapshot) in
+             if let postDict = snapshot.value as? [String : AnyObject]{
+        if postDict.keys.isEmpty{
+            print("Went in ")
+            Database.database().reference().child("users/profile/\(uid)/Grocery List").updateChildValues(["Grocery List": ""])
+        } else {
+            print("Sorr bro")
+            print(postDict.keys)
+            
+        }
         
     }
-    
+        }
+        )}*/
+    }
     
     
     
@@ -109,17 +127,23 @@ class IngredientTableViewController: UITableViewController {
     @IBAction func deleteIngredient (_ingredientList:Any) {
         
         guard let uid = Auth.auth().currentUser?.uid else {return}
-        var postRef = Database.database().reference().child("users/profile/\(uid)/Grocery List")
+        var postRef = Database.database().reference().child("users/profile/\(uid)")
         
         var refHandle = postRef.observe(.value, with: { (snapshot) in
-            if let postDict = snapshot.value as? [String : AnyObject]{
+            if var postDict = snapshot.value as? [String : AnyObject]{
                 print("pls")
                 var childArray = [String]()
                 
+                
                 for i in postDict.keys{
-                    var postpostref = postRef.child(i)
-                    postpostref.removeValue()
+                    print(i)
+                    if i == "Grocery List"{
+                        postRef.child("Grocery List").removeValue()
+                        
+                    }
+ 
                 }
+                //postRef.child("Grocery List").setValue(["abc":""])
                 
                 self.tableView.reloadData()
             }else{
@@ -129,124 +153,17 @@ class IngredientTableViewController: UITableViewController {
             
         })
         
-        
-        
-        
-        
-        
-        //self.deleteFromCoreData()
-        //DispatchQueue.main.async {
-        /*guard let uid = Auth.auth().currentUser?.uid else {return}
-        Database.database().reference().child("user/profile/\(uid)/Grocery List").removeValue()
-            self.tableView!.reloadData()*/
-            //self.tableView.reloadRowsAtIndexPaths( withRowAnimation: UITableViewRowAnimation.None)
-            //      self.IngredientTableViewController.reloadData()
-            // let rowNumber: Int = 0
-            //let sectionNumber: Int = 0
-            
-            //let indexPath = IndexPath(item: rowNumber, section: sectionNumber)
-            
-            //self.tableView.reloadRows(at: [indexPath], with: .automatic)
-            
-        
+
+
     }
     func getContext () -> NSManagedObjectContext {
         let appDelegate = UIApplication.shared.delegate as! AppDelegate
         return appDelegate.persistentContainer.viewContext
     }
     
+
     
-    
-    func deleteFromCoreData() -> Void {
-        //  let indexPath = tableView.indexPathForSelectedRow
-        let moc = getContext()
-        
-        let fetchRequest = NSFetchRequest<NSFetchRequestResult>(entityName: "Ingredient")
-        //  fetchRequest.predicate = NSPredicate(format: "movieTitle == %@")
-        //let fetchRequest.predicate = NSPredicate(forKey: "ingredient", itemToDelete)
-        
-        let result = try? moc.fetch(fetchRequest)
-        let resultData = result as! [Ingredient]
-        
-        for object in resultData {
-            moc.delete(object)
-            //  moc.delete(fetchRequest[indexPath.row])
-        }
-        
-        do {
-            try moc.save()
-            print("saved!")
-        } catch let error as NSError  {
-            print("Could not save \(error), \(error.userInfo)")
-        } catch {
-            
-        }
-        
-    }
-    
-    
-    
-    /*    let indexPath = tableView.indexPathForSelectedRow
-     // let selectedRow =  indexPath?.row
-     guard let cell = tableView.dequeueReusableCell(withIdentifier: "IngredientTableViewCell", for: indexPath) as?
-     IngredientTableViewCell else {
-     fatalError("The dequeued cell is not an instance of TableViewCell")
-     
-     }
-     
-     let grocery = cell.ingredientList.text
-     //  let grocery = ingredientList.self
-     self.SaveIngredient(grocery.text)
-     */
-    
-    
-    //   }
-    /*   func SaveIngredient (_grocery:AnyObject) {
-     let appDelegate = UIApplication.shared.delegate as! AppDelegate
-     let managedContext = appDelegate.persistentContainer.viewContext
-     let entity = NSEntityDescription.entity(forEntityName: "Ingredients", in: managedContext)
-     let ingredient = NSManagedObject(entity: entity!, insertInto: managedContext)
-     
-     
-     //print(grocery)
-     
-     ingredient.setValue(grocery, forKey: "item")
-     
-     do {
-     try managedContext.save()
-     } catch {
-     // what to do if an error occurs?
-     let nserror = error as NSError
-     NSLog("Unresolved error \(nserror), \(nserror.userInfo)")
-     abort()
-     }
-     
-     ingredients.append(ingredient)
-     }*/
-    // if let indexPath = tableView.indexPathForSelectedRow {
-    //   let selectedRow =  indexPath.row
-    //   let destinationVC = segue.destination as! ListTableViewController
-    //   destinationVC.ingredients = self.Ingredientlist[selectedRow]
-    
-    
-    
-    //            GroceryList.append(GroceryList(ingredient:self.Ingredientlist[selectedRow]))
-    //let cellIdentifier = "IngredientTableViewCell"
-    //   let cell = tableView.dequeueReusableCell(withIdentifier: cellIdentifier, for cellForRowAt indexPath)
-    // let Ingredient = Ingredientlist.ingredient.text!
-    // self.saveIngredient(Ingredient)
-    
-    
-    //  func prepare(for segue: UIStoryboardSegue,  sender: Any?) {
-    //    if let indexPath = tableView.indexPathForSelectedRow {
-    //         let selectedRow =  indexPath.row
-    //        let destinationVC = segue.destination as! ListTableViewController
-    //        destinationVC.ingredient = self.Ingredientlist[selectedRow]
-    // Get the new view controller using segue.destinationViewController.
-    // Pass the selected object to the new view controller.
-    
-    
-    
+
     
     
     
