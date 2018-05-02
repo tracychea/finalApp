@@ -151,8 +151,8 @@ class AddDishViewController: UIViewController, UITableViewDataSource, UITableVie
         let photo =
             PhotoObject(image: UIImage(named:orderedImages[pageIndex]))
         guard let uid = Auth.auth().currentUser?.uid else {return}
-        let databaseRef = Database.database().reference().child("users/profile/\(uid)"+"/Photo")
-        databaseRef.child(dishName.text!).setValue(photo.toAnyObject())
+        let databaseRef = Database.database().reference().child("users/profile/\(uid)/Dish List")
+        databaseRef.child(dishName.text!).updateChildValues(["photo": photo.toAnyObject()])
     }
     
     func toAnyObject(image: UIImage) -> Any {
