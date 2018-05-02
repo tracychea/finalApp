@@ -8,10 +8,11 @@
 
 import UIKit
 import CoreData
+import Firebase
 class IngredientTableViewController: UITableViewController {
     
    // private var Ingredientlist: [ingredientList] = []
-    var ingredient = [NSManagedObject]()
+    var ingredient = [String]()
     
     //weak var checkImage: UIImageView! //{box.png}
     
@@ -24,6 +25,20 @@ class IngredientTableViewController: UITableViewController {
         self.view.backgroundColor = settingService.sharedService.backgroundColor;
         //var image : UIImage = UIImage(named:"box")!
         //checkImage = UIImageView(image: image)
+        guard let uid = Auth.auth().currentUser?.uid else {return}
+        var postRef = Database.database().reference().child("users/profile/\(uid)/Grocery List")
+        var refHandle = postRef.observe(.value, with: { (snapshot) in
+            if let postDict = snapshot.value as? [String : AnyObject]{
+                for i in postDict.keys{
+                    self.ingredient.append(i)
+                    
+                }
+                
+                self.tableView.reloadData()
+            } else {
+                print("DOesnt work")
+            }
+        })
         
         
     }
@@ -49,11 +64,11 @@ class IngredientTableViewController: UITableViewController {
         }
         
         // Set data to local variable
-        if let results = fetchedResults {
+        /*if let results = fetchedResults {
             ingredient = results
         } else {
             print("Could not fetch")
-        }
+        }*/
     }
     override func didReceiveMemoryWarning() {
         super.didReceiveMemoryWarning()
@@ -82,7 +97,8 @@ class IngredientTableViewController: UITableViewController {
         // Configure the cell...
         let ingredientlists = ingredient[indexPath.row]
         
-        cell.ingredientList.text = ingredientlists.value(forKey: "ingredient") as? String
+        cell.ingredientList.text = ingredientlists
+        
         //itemToDelete = (ingredientlists.value(forKey: "ingredient") as? String)!
         return cell
         
