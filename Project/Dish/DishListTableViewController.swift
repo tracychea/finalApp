@@ -8,16 +8,49 @@
 
 import UIKit
 import CoreData
+import Firebase
 
 class DishListTableViewController: UITableViewController {
     let reuseIdentifier = "reuseIdentifier"
     
-    var dishes = [NSManagedObject]()
+    
+    var dishes = [populateDishList]()
 
     override func viewDidLoad() {
         super.viewDidLoad()
         self.view.backgroundColor = settingService.sharedService.backgroundColor;
-
+        guard let uid = Auth.auth().currentUser?.uid else {return}
+        var refUsers = Database.database().reference().child("users/profile/\(uid)");
+        
+        //observing the data changes
+        refUsers.observe(DataEventType.value, with: { (snapshot) in
+            
+            //if the reference have some values
+            if snapshot.childrenCount > 0 {
+                print("THis works")
+                
+                //clearing the list
+                self.dishes.removeAll()
+                
+                //iterating through all the values
+                for users in snapshot.children.allObjects as! [DataSnapshot] {
+                    //getting values
+                  
+                    let dishObject = users.value as? [String: AnyObject]
+                    let dishName  = dishObject?["Dish List"]
+                    print(dishName)
+                    
+                    //creating artist object with model and fetched values
+                    let dish = populateDishList(dishList: dishName as! String?)
+                    
+                    //appending it to list
+                    self.dishes.append(dish)
+                }
+                
+                //reloading the tableview
+                self.tableView.reloadData()
+            }
+        })
         // Uncomment the following line to preserve selection between presentations
         // self.clearsSelectionOnViewWillAppear = false
 
@@ -29,7 +62,7 @@ class DishListTableViewController: UITableViewController {
     
     override func viewWillAppear(_ animated: Bool) {
         super.viewWillAppear(animated)
-        let appDelegate = UIApplication.shared.delegate as! AppDelegate
+       /* let appDelegate = UIApplication.shared.delegate as! AppDelegate
         let managedContext = appDelegate.persistentContainer.viewContext
         let fetchRequest = NSFetchRequest<NSFetchRequestResult>(entityName:"Dish")
         var fetchedResults:[NSManagedObject]? = nil
@@ -46,10 +79,10 @@ class DishListTableViewController: UITableViewController {
         
         // Set data to local variable
         if let results = fetchedResults {
-            dishes = results
+            dishes = results as! [User]
         } else {
             print("Could not fetch")
-        }
+        } */
     }
 
     override func didReceiveMemoryWarning() {
@@ -79,8 +112,9 @@ class DishListTableViewController: UITableViewController {
         }
         
         // Configure the cell...
-        let dish = dishes[indexPath.row]
-        cell.dishName.text = dish.value(forKey: "name") as? String
+        let dish: populateDishList
+        dish = dishes[indexPath.row]
+        cell.dishName.text = dish.dishList
         
         return cell
         

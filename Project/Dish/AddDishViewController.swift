@@ -40,7 +40,7 @@ class AddDishViewController: UIViewController, UITableViewDataSource, UITableVie
     private var ingredients: [String] = []
     var receiveArray: [String]?
     
-    let users = [Users]()
+   
     
     override func viewDidLoad() {
         super.viewDidLoad()
