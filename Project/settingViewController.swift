@@ -142,7 +142,6 @@ class settingViewController: UIViewController,UIPickerViewDelegate,UIPickerViewD
             GlobalVariable.sizeString = Int(CGFloat(fontSlider.value * 20.0))
             //var fontValue2 = UIFont(name: "LaoSangamMN", size: 15.0)
             //  settingService.sharedService.fontStyle = fontValue2!;
-            print ("yikes")
             self.textBox.font = settingService.sharedService.fontStyle;
             self.fontBox.font = settingService.sharedService.fontStyle;
             self.fontSize.font = settingService.sharedService.fontStyle;
@@ -155,7 +154,6 @@ class settingViewController: UIViewController,UIPickerViewDelegate,UIPickerViewD
         if fontBox.text == "Avenir"{
             GlobalVariable.textString = "Avenir"
             GlobalVariable.sizeString = Int(CGFloat(fontSlider.value * 20.0))
-            print ("kdfb")
             //   var fontValue1 = UIFont(name: "HelveticaNeue", size: 15.0)
             //    settingService.sharedService.fontStyle = fontValue1!;
             self.textBox.font = settingService.sharedService.fontStyle;
@@ -170,8 +168,7 @@ class settingViewController: UIViewController,UIPickerViewDelegate,UIPickerViewD
         if fontBox.text == "Damascus"{
             GlobalVariable.textString = "Damascus"
             GlobalVariable.sizeString = Int(CGFloat(fontSlider.value * 20.0))
-            print("nono")
-            
+
             //  var fontValue = UIFont(name: "DamascusLight", size: 15.0)
             //  settingService.sharedService.fontStyle = fontValue!;
             self.textBox.font = settingService.sharedService.fontStyle;

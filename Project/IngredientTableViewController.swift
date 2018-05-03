@@ -135,7 +135,6 @@ class IngredientTableViewController: UITableViewController {
         
         var refHandle = postRef.observe(.value, with: { (snapshot) in
             if var postDict = snapshot.value as? [String : AnyObject]{
-                print("pls")
                 var childArray = [String]()
                 
                 
@@ -153,7 +152,7 @@ class IngredientTableViewController: UITableViewController {
                 self.tableView.reloadData()
                 
             }else{
-                print("no")
+                print("Didn't work")
             }
             
             
@@ -166,14 +165,6 @@ class IngredientTableViewController: UITableViewController {
         let appDelegate = UIApplication.shared.delegate as! AppDelegate
         return appDelegate.persistentContainer.viewContext
     }
-    
-
-    
-
-    
-    
-    
-    
-    
+      
 }
 

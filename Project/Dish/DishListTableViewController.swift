@@ -37,7 +37,7 @@ class DishListTableViewController: UITableViewController {
                
                 self.tableView.reloadData()
             } else {
-                print("DOesnt work")
+                print("Doesnt work")
             }
         })
     

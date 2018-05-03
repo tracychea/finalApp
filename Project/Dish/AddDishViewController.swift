@@ -104,7 +104,6 @@ class AddDishViewController: UIViewController, UITableViewDataSource, UITableVie
     
     @IBAction func addDish(_ sender: UIButton) {
         if dishName.text == ""{
-            print("boo")
             //alert
             let alert = UIAlertController(title: "New Dish",
                                           message: "You must enter a value for all fields.",
@@ -125,12 +124,10 @@ class AddDishViewController: UIViewController, UITableViewDataSource, UITableVie
     }
     
     @IBAction func changeImage(_ sender: UIButton) {
-        print("yo")
         pageIndex = pageIndex + 1
         if pageIndex >= orderedImages.count {
             pageIndex = 0
         }
-        print(pageIndex)
         imageView.image = UIImage(named:orderedImages[pageIndex])
         
     }

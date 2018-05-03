@@ -33,7 +33,6 @@
 		54F5D6072096FA3C008AD034 /* settingServices.swift in Sources */ = {isa = PBXBuildFile; fileRef = 54F5D6052096FA3C008AD034 /* settingServices.swift */; };
 		54F5D60B2098174E008AD034 /* AddGroceryViewController.swift in Sources */ = {isa = PBXBuildFile; fileRef = 54F5D60A2098174D008AD034 /* AddGroceryViewController.swift */; };
 		54F5D60F20993919008AD034 /* settingViewController.swift in Sources */ = {isa = PBXBuildFile; fileRef = 54F5D60E20993919008AD034 /* settingViewController.swift */; };
-		54F5D6112099599A008AD034 /* populateDishList.swift in Sources */ = {isa = PBXBuildFile; fileRef = 54F5D6102099599A008AD034 /* populateDishList.swift */; };
 		54F5D617209AF022008AD034 /* cart.png in Resources */ = {isa = PBXBuildFile; fileRef = 54F5D616209AF021008AD034 /* cart.png */; };
 		71C552D342C4683A438D9974 /* Pods_Project.framework in Frameworks */ = {isa = PBXBuildFile; fileRef = 127707E21DC7B6E339AEB195 /* Pods_Project.framework */; };
 /* End PBXBuildFile section */
@@ -90,7 +89,6 @@
 		54F5D6052096FA3C008AD034 /* settingServices.swift */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.swift; name = settingServices.swift; path = "../../../Library/Messages/Attachments/a6/06/EBC28BBB-748C-412F-9BDF-C6F80160BA56/Project 2/Project/settingServices.swift"; sourceTree = "<group>"; };
 		54F5D60A2098174D008AD034 /* AddGroceryViewController.swift */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.swift; name = AddGroceryViewController.swift; path = "../../../Library/Messages/Attachments/ef/15/2C67196C-DC05-4F00-B20C-3B1FB9558E70/Project 3 final/Project/AddGroceryViewController.swift"; sourceTree = "<group>"; };
 		54F5D60E20993919008AD034 /* settingViewController.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = settingViewController.swift; sourceTree = "<group>"; };
-		54F5D6102099599A008AD034 /* populateDishList.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = populateDishList.swift; sourceTree = "<group>"; };
 		54F5D616209AF021008AD034 /* cart.png */ = {isa = PBXFileReference; lastKnownFileType = image.png; name = cart.png; path = ../../cart.png; sourceTree = "<group>"; };
 		8155F8F8405093857A1B6578 /* Pods-Project.release.xcconfig */ = {isa = PBXFileReference; includeInIndex = 1; lastKnownFileType = text.xcconfig; name = "Pods-Project.release.xcconfig"; path = "Pods/Target Support Files/Pods-Project/Pods-Project.release.xcconfig"; sourceTree = "<group>"; };
 /* End PBXFileReference section */
@@ -166,7 +164,6 @@
 				54D47F3F2092AE0E00A41D04 /* Dish */,
 				547BC3F2207EF05500F5D91A /* CalorieViewController.swift */,
 				54F5D60E20993919008AD034 /* settingViewController.swift */,
-				54F5D6102099599A008AD034 /* populateDishList.swift */,
 			);
 			path = Project;
 			sourceTree = "<group>";
@@ -430,7 +427,6 @@
 				54D47F482093B2A500A41D04 /* ShowIngredientTableViewCell.swift in Sources */,
 				547BC3EF20758BAF00F5D91A /* AddDishViewController.swift in Sources */,
 				547BC3BA206C70AB00F5D91A /* AppDelegate.swift in Sources */,
-				54F5D6112099599A008AD034 /* populateDishList.swift in Sources */,
 				547BC3F5207F142C00F5D91A /* IngredientTableViewCell.swift in Sources */,
 			);
 			runOnlyForDeploymentPostprocessing = 0;

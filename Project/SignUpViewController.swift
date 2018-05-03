@@ -62,13 +62,11 @@ class SignUpViewController: UIViewController {
         } else {
             Auth.auth().createUser(withEmail: emailTextField.text!, password: passwordText.text!){ user, error  in
                 if error == nil && user != nil {
-                    print("User created")
-                    
+
                     let changeRequest = Auth.auth().currentUser?.createProfileChangeRequest()
                     changeRequest?.displayName = self.usernameText.text
                     changeRequest?.commitChanges { error in
                         if error == nil {
-                            print("Username has been updated!")
                             //takes back to login screen when successfully signed up
                             let destinationController = self.storyboard?.instantiateViewController(withIdentifier: "LoginViewController")
                             self.saveUserProfile(username: self.usernameText.text!) { success in

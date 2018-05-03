@@ -94,7 +94,6 @@ class DishInfoViewController: UIViewController, UITableViewDataSource, UITableVi
     @IBAction func addDishToGrocery(_ sender: Any) {
         guard let uid = Auth.auth().currentUser?.uid else {return}
         var postRef = Database.database().reference().child("users/profile/\(uid)/Grocery List")
-        print(self.ingredientsArray)
         for i in self.ingredientsArray{
             
             postRef.child(i).setValue("")
