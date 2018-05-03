@@ -32,7 +32,11 @@ class DishListTableViewController: UITableViewController {
         var refHandle = postRef.observe(.value, with: { (snapshot) in
             if let postDict = snapshot.value as? [String : AnyObject]{
                 for i in postDict.keys{
+                    if self.dishes.contains(i){
+                        continue
+                    }else{
                     self.dishes.append(i)
+                    }
                 }
                
                 self.tableView.reloadData()
@@ -40,9 +44,21 @@ class DishListTableViewController: UITableViewController {
                 print("Doesnt work")
             }
         })
+        tableView.allowsMultipleSelectionDuringEditing = true
     
     }
     
+    override func tableView(_ tableView: UITableView, canEditRowAt indexPath: IndexPath) -> Bool {
+        return true
+    }
+    
+    override func tableView(_ tableView: UITableView, commit editingStyle: UITableViewCellEditingStyle, forRowAt indexPath: IndexPath) {
+        guard let uid = Auth.auth().currentUser?.uid else {return}
+        let removeItem = self.dishes[indexPath.row]
+        Database.database().reference().child("users/profile/\(uid)/Dish List").child(removeItem).removeValue()
+        self.dishes.remove(at: indexPath.row)
+        self.tableView.deleteRows(at: [indexPath], with: .automatic)
+    }
     override func viewWillAppear(_ animated: Bool) {
         super.viewWillAppear(animated)
        /* let appDelegate = UIApplication.shared.delegate as! AppDelegate

@@ -35,10 +35,11 @@ class AddDishViewController: UIViewController, UITableViewDataSource, UITableVie
     var pageIndex:Int = 0
     var strPhotoName:String!
     
-    var dishes = [NSManagedObject]()
+    var dishes = [String]()
     var receiveString: String?
     private var ingredients: [String] = []
     var receiveArray: [String]?
+    @IBOutlet weak var ingredientInput: UITextField!
     
    
     
@@ -50,6 +51,17 @@ class AddDishViewController: UIViewController, UITableViewDataSource, UITableVie
         UITextView.appearance().font = settingService.sharedService.fontStyle;
         UITextField.appearance().font = settingService.sharedService.fontStyle;
         
+        //check for current dish list in database
+        guard let uid = Auth.auth().currentUser?.uid else {return}
+        let databaseRef = Database.database().reference().child("users/profile/\(uid)"+"/Dish List")
+        var refHandle = databaseRef.observe(.value, with: { (snapshot) in
+            if let postDict = snapshot.value as? [String : AnyObject]{
+                for i in postDict.keys{
+                    self.dishes.append(i)
+                    
+                }
+            }
+        })
       
         
         ingredientTable.delegate = self
@@ -65,14 +77,23 @@ class AddDishViewController: UIViewController, UITableViewDataSource, UITableVie
             print("no")
         }*/
         
-        if receiveArray?.count != nil{
+        /*if receiveArray?.count != nil{
             for i in receiveArray!{
                 ingredients.append(i)
             }
-        }
+        }*/
+        ingredientTable.allowsMultipleSelectionDuringEditing = true
         
     }
 
+    func tableView(_ tableView: UITableView, canEditRowAt indexPath: IndexPath) -> Bool {
+        return true
+    }
+    func tableView(_ tableView: UITableView, commit editingStyle: UITableViewCellEditingStyle, forRowAt indexPath: IndexPath) {
+        self.ingredients.remove(at: indexPath.row)
+        self.ingredientTable.deleteRows(at: [indexPath], with: .automatic)
+        
+    }
     func tableView(_ tableView: UITableView, numberOfRowsInSection section: Int) -> Int {
         return self.ingredients.count
     }
@@ -96,7 +117,30 @@ class AddDishViewController: UIViewController, UITableViewDataSource, UITableVie
         return cell
     }
     
-
+    @IBAction func ingredientToDish(_ sender: UIButton) {
+        print(ingredientInput.text!)
+        
+        if ingredientInput.text! != "" {
+            if ingredients.contains(ingredientInput.text!){
+                let alert2 = UIAlertController(title: "Duplicate Ingredient", message: "Ingredient already exists in current dish", preferredStyle: .alert)
+                self.present(alert2, animated: true, completion: nil)
+                let okButton = UIAlertAction(title: "OK", style: .default){(action: UIAlertAction)-> Void in
+                }
+                alert2.addAction(okButton)
+            }else{
+                ingredients.append(ingredientInput.text!)
+                ingredientTable.reloadData()
+            }
+                
+        }else{
+            let alert = UIAlertController(title: "No Value", message: "Please input an ingredient to add to dish", preferredStyle: .alert)
+            self.present(alert, animated: true, completion: nil)
+            let okButton = UIAlertAction(title: "OK", style: .default){(action: UIAlertAction)-> Void in
+            }
+            alert.addAction(okButton)
+        }
+    }
+    
     override func didReceiveMemoryWarning() {
         super.didReceiveMemoryWarning()
         // Dispose of any resources that can be recreated.
@@ -118,7 +162,18 @@ class AddDishViewController: UIViewController, UITableViewDataSource, UITableVie
         }
         else{
             
-            self.saveDish(dishName.text!)
+            if self.dishes.contains(dishName.text!){
+                let alert2 = UIAlertController(title: "Dish Name: '\(dishName.text!)' already exists", message: "Please enter a unique name", preferredStyle: .alert)
+                 self.present(alert2, animated: true, completion: nil)
+                 let okButton = UIAlertAction(title: "OK", style: .default){(action: UIAlertAction)-> Void in
+                 }
+                 alert2.addAction(okButton)
+            }
+            else{
+                self.saveDish(dishName.text!)
+                self.navigationController?.popViewController(animated: true)
+            }
+            
             
         }
     }
