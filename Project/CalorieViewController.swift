@@ -85,7 +85,7 @@ class CalorieViewController: UIViewController {
                 
                 totalCalories = 655.1 + (9.6 * (weightValue * 00.453592)) + (1.9 * (heightValue * 2.54))
             }
-            caloricSuggestion.text = String(totalCalories)
+            caloricSuggestion.text = String(totalCalories.rounded()) + " Calories"
         }
 
     }

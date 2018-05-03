@@ -40,7 +40,6 @@ class DishInfoViewController: UIViewController, UITableViewDataSource, UITableVi
         UILabel.appearance().font = settingService.sharedService.fontStyle;
         UITextView.appearance().font = settingService.sharedService.fontStyle;
         UITextField.appearance().font = settingService.sharedService.fontStyle;
-        self.tabBarController?.tabBar.isHidden = true
 
         //ALL OF THIS IS TABLE VIEW V
         guard let uid = Auth.auth().currentUser?.uid else {return}

@@ -36,7 +36,11 @@ class LoginViewController: UIViewController {
                 let destinationController = self.storyboard?.instantiateViewController(withIdentifier: "tabBarViewController")
                 self.present(destinationController!, animated: true, completion: nil)
             } else {
-                print("Error logging in: \(error!.localizedDescription)")
+                let alert2 = UIAlertController(title: "Error", message: "Incorrect email or incorrect password", preferredStyle: .alert)
+                self.present(alert2, animated: true, completion: nil)
+                let okButton = UIAlertAction(title: "OK", style: .default){(action: UIAlertAction)-> Void in
+                }
+                alert2.addAction(okButton)
             }
         }
     }
