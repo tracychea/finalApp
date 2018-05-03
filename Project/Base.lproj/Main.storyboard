@@ -790,7 +790,7 @@
                                                 <autoresizingMask key="autoresizingMask" flexibleMaxX="YES" flexibleMaxY="YES"/>
                                                 <state key="normal" title="Add to Grocery"/>
                                                 <connections>
-                                                    <segue destination="L3p-2U-yaF" kind="show" id="hhd-1B-26w"/>
+                                                    <segue destination="WuN-ME-BOb" kind="show" id="7TV-Ad-mt7"/>
                                                 </connections>
                                             </button>
                                         </barButtonItem>
@@ -835,10 +835,9 @@
         <image name="checkBox" width="512" height="512"/>
     </resources>
     <inferredMetricsTieBreakers>
-        <segue reference="a4S-dt-KYR"/>
+        <segue reference="cGr-46-MoM"/>
         <segue reference="coH-3a-YdD"/>
         <segue reference="u7c-Om-eUE"/>
-        <segue reference="Udf-xp-qJx"/>
-        <segue reference="E3t-zI-m6o"/>
+        <segue reference="7TV-Ad-mt7"/>
     </inferredMetricsTieBreakers>
 </document>

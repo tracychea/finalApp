@@ -125,7 +125,7 @@ class DishInfoViewController: UIViewController, UITableViewDataSource, UITableVi
     
         
         //segue from this controller to person view controller, sending in person according to row selection
-        let destinationVC = segue.destination as! AddGroceryViewController
+        let destinationVC = segue.destination as! IngredientTableViewController
         destinationVC.appendList = self.ingredientsArray
     
     }

@@ -13,6 +13,7 @@ class IngredientTableViewController: UITableViewController {
     
    // private var Ingredientlist: [ingredientList] = []
     var ingredient = [String]()
+    var appendList = [String]()
     
     //weak var checkImage: UIImageView! //{box.png}
     
@@ -25,6 +26,15 @@ class IngredientTableViewController: UITableViewController {
         self.view.backgroundColor = settingService.sharedService.backgroundColor;
         //var image : UIImage = UIImage(named:"box")!
         //checkImage = UIImageView(image: image)
+        if appendList != nil {
+            guard let uid = Auth.auth().currentUser?.uid else {return}
+            let databaseRef = Database.database().reference().child("users/profile/\(uid)/Grocery List")
+            for i in appendList{
+                
+                databaseRef.child(i).setValue("")
+            }
+            
+        }
         guard let uid = Auth.auth().currentUser?.uid else {return}
         var postRef = Database.database().reference().child("users/profile/\(uid)/Grocery List")
         var refHandle = postRef.observe(.value, with: { (snapshot) in
