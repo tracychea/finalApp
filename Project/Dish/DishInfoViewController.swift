@@ -36,6 +36,7 @@ class DishInfoViewController: UIViewController, UITableViewDataSource, UITableVi
     
     override func viewDidLoad() {
         super.viewDidLoad()
+        
   
         
         
@@ -53,6 +54,7 @@ class DishInfoViewController: UIViewController, UITableViewDataSource, UITableVi
                 self.ingredientTable.reloadData()
             }
         })
+        self.title = dish!
         self.navigationController?.isNavigationBarHidden = false
         ingredientTable.delegate = self
         ingredientTable.dataSource = self
@@ -76,6 +78,16 @@ class DishInfoViewController: UIViewController, UITableViewDataSource, UITableVi
         
         downloadPhoto()
         
+    }
+
+    @IBAction func addDishToGrocery(_ sender: Any) {
+        guard let uid = Auth.auth().currentUser?.uid else {return}
+        var postRef = Database.database().reference().child("users/profile/\(uid)/Grocery List")
+        print(self.ingredientsArray)
+        for i in self.ingredientsArray{
+            
+            postRef.child(i).setValue("")
+        }
     }
 
     override func didReceiveMemoryWarning() {
@@ -121,14 +133,14 @@ class DishInfoViewController: UIViewController, UITableViewDataSource, UITableVi
     // MARK: - Navigation
 
     // In a storyboard-based application, you will often want to do a little preparation before navigation
-    override func prepare(for segue: UIStoryboardSegue, sender: Any?) {
+    /*override func prepare(for segue: UIStoryboardSegue, sender: Any?) {
     
         
         //segue from this controller to person view controller, sending in person according to row selection
         let destinationVC = segue.destination as! IngredientTableViewController
         destinationVC.appendList = self.ingredientsArray
-    
-    }
+ 
+    }*/
     
 
 }

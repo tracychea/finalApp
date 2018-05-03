@@ -45,6 +45,7 @@ class IngredientTableViewCell: UITableViewCell {
     //        checked = false
     //    }
     //}
+    
     override func awakeFromNib() {
         super.awakeFromNib()
         // Initialization code
@@ -55,6 +56,7 @@ class IngredientTableViewCell: UITableViewCell {
         
         // Configure the view for the selected state
     }
+    
     
 }
 

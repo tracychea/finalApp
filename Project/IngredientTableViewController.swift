@@ -13,7 +13,6 @@ class IngredientTableViewController: UITableViewController {
     
    // private var Ingredientlist: [ingredientList] = []
     var ingredient = [String]()
-    var appendList = [String]()
     
     //weak var checkImage: UIImageView! //{box.png}
     
@@ -26,21 +25,18 @@ class IngredientTableViewController: UITableViewController {
         self.view.backgroundColor = settingService.sharedService.backgroundColor;
         //var image : UIImage = UIImage(named:"box")!
         //checkImage = UIImageView(image: image)
-        if appendList != nil {
-            guard let uid = Auth.auth().currentUser?.uid else {return}
-            let databaseRef = Database.database().reference().child("users/profile/\(uid)/Grocery List")
-            for i in appendList{
-                
-                databaseRef.child(i).setValue("")
-            }
-            
-        }
+        
         guard let uid = Auth.auth().currentUser?.uid else {return}
         var postRef = Database.database().reference().child("users/profile/\(uid)/Grocery List")
         var refHandle = postRef.observe(.value, with: { (snapshot) in
             if let postDict = snapshot.value as? [String : AnyObject]{
                 for i in postDict.keys{
-                    self.ingredient.append(i)
+                    if self.ingredient.contains(i){
+                        continue
+                    }else{
+                        self.ingredient.append(i)
+                    }
+                    
                     
                 }
                 
@@ -48,16 +44,11 @@ class IngredientTableViewController: UITableViewController {
                 
             } else {
                 print("DOesnt work")
-               /*
-                for i in 0...1{
-                    Database.database().reference().child("users/profile/\(uid)/Grocery List").setValue("Grocery List")
-                    continue
-                }
-                */
+        
                 
                 
             }
-        self.tableView.reloadData()
+        //self.tableView.reloadData()
         })
         tableView.allowsMultipleSelectionDuringEditing = true
     }
@@ -151,6 +142,7 @@ class IngredientTableViewController: UITableViewController {
                     print(i)
                     if i == "Grocery List"{
                         postRef.child("Grocery List").removeValue()
+                        self.ingredient = []
                         
                     }
  
@@ -158,6 +150,7 @@ class IngredientTableViewController: UITableViewController {
                 //postRef.child("Grocery List").setValue(["abc":""])
                 
                 self.tableView.reloadData()
+                
             }else{
                 print("no")
             }
