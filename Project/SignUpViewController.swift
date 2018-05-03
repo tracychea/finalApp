@@ -76,7 +76,7 @@ class SignUpViewController: UIViewController {
                                 }
                             }
                         } else {
-                            print("ERRRORRR: \(error!.localizedDescription)")
+                           print("ERRRORRR: \(error!.localizedDescription)")
                         }
                     }
                 } else {

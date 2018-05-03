@@ -308,14 +308,6 @@
                                 <fontDescription key="fontDescription" type="system" pointSize="14"/>
                                 <textInputTraits key="textInputTraits"/>
                             </textField>
-                            <button opaque="NO" contentMode="scaleToFill" fixedFrame="YES" contentHorizontalAlignment="center" contentVerticalAlignment="center" buttonType="roundedRect" lineBreakMode="middleTruncation" translatesAutoresizingMaskIntoConstraints="NO" id="pTO-IE-xFh">
-                                <rect key="frame" x="155" y="321" width="64" height="30"/>
-                                <autoresizingMask key="autoresizingMask" flexibleMaxX="YES" flexibleMaxY="YES"/>
-                                <state key="normal" title="Calculate"/>
-                                <connections>
-                                    <action selector="calculate:" destination="jtO-Ua-ibA" eventType="touchUpInside" id="3Jp-B7-u4h"/>
-                                </connections>
-                            </button>
                             <label opaque="NO" userInteractionEnabled="NO" contentMode="left" horizontalHuggingPriority="251" verticalHuggingPriority="251" fixedFrame="YES" text="&lt;Suggested Calorie Intake&gt;" textAlignment="center" lineBreakMode="tailTruncation" baselineAdjustment="alignBaselines" adjustsFontSizeToFit="NO" translatesAutoresizingMaskIntoConstraints="NO" id="x2a-Zj-mBd">
                                 <rect key="frame" x="81" y="359" width="213" height="21"/>
                                 <autoresizingMask key="autoresizingMask" flexibleMaxX="YES" flexibleMaxY="YES"/>
@@ -348,11 +340,19 @@
                                 <nil key="textColor"/>
                                 <nil key="highlightedColor"/>
                             </label>
+                            <button opaque="NO" contentMode="scaleToFill" fixedFrame="YES" contentHorizontalAlignment="center" contentVerticalAlignment="center" buttonType="roundedRect" lineBreakMode="middleTruncation" translatesAutoresizingMaskIntoConstraints="NO" id="pTO-IE-xFh">
+                                <rect key="frame" x="138" y="299" width="99" height="52"/>
+                                <autoresizingMask key="autoresizingMask" flexibleMaxX="YES" flexibleMaxY="YES"/>
+                                <state key="normal" title="Calculate"/>
+                                <connections>
+                                    <action selector="calculate:" destination="jtO-Ua-ibA" eventType="touchUpInside" id="3Jp-B7-u4h"/>
+                                </connections>
+                            </button>
                         </subviews>
                         <color key="backgroundColor" white="1" alpha="1" colorSpace="custom" customColorSpace="genericGamma22GrayColorSpace"/>
                         <viewLayoutGuide key="safeArea" id="1uJ-9w-g1W"/>
                     </view>
-                    <tabBarItem key="tabBarItem" title="Calorie Calculator" id="nDK-zz-a3A"/>
+                    <tabBarItem key="tabBarItem" title="Calorie Calculator" image="calculator" landscapeImage="calculator" id="nDK-zz-a3A"/>
                     <connections>
                         <outlet property="age" destination="mkq-Ny-UI0" id="5zc-au-VXe"/>
                         <outlet property="caloricSuggestion" destination="x2a-Zj-mBd" id="tL4-Ut-khE"/>
@@ -430,40 +430,12 @@
                         <rect key="frame" x="0.0" y="0.0" width="375" height="667"/>
                         <autoresizingMask key="autoresizingMask" widthSizable="YES" heightSizable="YES"/>
                         <subviews>
-                            <textField opaque="NO" tag="1" contentMode="scaleToFill" fixedFrame="YES" contentHorizontalAlignment="left" contentVerticalAlignment="center" borderStyle="roundedRect" textAlignment="natural" minimumFontSize="17" translatesAutoresizingMaskIntoConstraints="NO" id="IBD-Me-XXq">
-                                <rect key="frame" x="103" y="108" width="164" height="30"/>
-                                <autoresizingMask key="autoresizingMask" flexibleMaxX="YES" flexibleMaxY="YES"/>
-                                <nil key="textColor"/>
-                                <fontDescription key="fontDescription" type="system" pointSize="14"/>
-                                <textInputTraits key="textInputTraits"/>
-                                <connections>
-                                    <outlet property="delegate" destination="UCX-FG-Ggj" id="8UI-ro-pDd"/>
-                                </connections>
-                            </textField>
                             <pickerView tag="1" contentMode="scaleToFill" fixedFrame="YES" translatesAutoresizingMaskIntoConstraints="NO" id="TIv-6Y-uik">
-                                <rect key="frame" x="16" y="136" width="343" height="81"/>
+                                <rect key="frame" x="16" y="104" width="343" height="81"/>
                                 <autoresizingMask key="autoresizingMask" widthSizable="YES" flexibleMaxY="YES"/>
                                 <connections>
                                     <outlet property="dataSource" destination="UCX-FG-Ggj" id="G36-lh-PWp"/>
                                     <outlet property="delegate" destination="UCX-FG-Ggj" id="l5d-e4-NLz"/>
-                                </connections>
-                            </pickerView>
-                            <textField opaque="NO" tag="2" contentMode="scaleToFill" fixedFrame="YES" contentHorizontalAlignment="left" contentVerticalAlignment="center" borderStyle="roundedRect" textAlignment="natural" minimumFontSize="17" translatesAutoresizingMaskIntoConstraints="NO" id="g2I-GH-h3V">
-                                <rect key="frame" x="102" y="289" width="164" height="30"/>
-                                <autoresizingMask key="autoresizingMask" flexibleMaxX="YES" flexibleMaxY="YES"/>
-                                <nil key="textColor"/>
-                                <fontDescription key="fontDescription" type="system" pointSize="14"/>
-                                <textInputTraits key="textInputTraits"/>
-                                <connections>
-                                    <outlet property="delegate" destination="UCX-FG-Ggj" id="6SX-1g-cFm"/>
-                                </connections>
-                            </textField>
-                            <pickerView tag="2" contentMode="scaleToFill" fixedFrame="YES" translatesAutoresizingMaskIntoConstraints="NO" id="Bif-Cf-G9G">
-                                <rect key="frame" x="16" y="339" width="343" height="81"/>
-                                <autoresizingMask key="autoresizingMask" widthSizable="YES" flexibleMaxY="YES"/>
-                                <connections>
-                                    <outlet property="dataSource" destination="UCX-FG-Ggj" id="QVY-wO-wwl"/>
-                                    <outlet property="delegate" destination="UCX-FG-Ggj" id="ExZ-Z5-Qdd"/>
                                 </connections>
                             </pickerView>
                             <label opaque="NO" userInteractionEnabled="NO" contentMode="left" horizontalHuggingPriority="251" verticalHuggingPriority="251" fixedFrame="YES" text="Font" textAlignment="center" lineBreakMode="tailTruncation" baselineAdjustment="alignBaselines" adjustsFontSizeToFit="NO" translatesAutoresizingMaskIntoConstraints="NO" id="zf9-DO-3R9">
@@ -510,20 +482,26 @@
                                     <action selector="saveSetting:" destination="UCX-FG-Ggj" eventType="touchUpInside" id="Fc7-px-0br"/>
                                 </connections>
                             </button>
+                            <pickerView tag="2" contentMode="scaleToFill" fixedFrame="YES" translatesAutoresizingMaskIntoConstraints="NO" id="Bif-Cf-G9G">
+                                <rect key="frame" x="16" y="293" width="343" height="81"/>
+                                <autoresizingMask key="autoresizingMask" widthSizable="YES" flexibleMaxY="YES"/>
+                                <connections>
+                                    <outlet property="dataSource" destination="UCX-FG-Ggj" id="QVY-wO-wwl"/>
+                                    <outlet property="delegate" destination="UCX-FG-Ggj" id="ExZ-Z5-Qdd"/>
+                                </connections>
+                            </pickerView>
                         </subviews>
                         <color key="backgroundColor" white="1" alpha="1" colorSpace="custom" customColorSpace="genericGamma22GrayColorSpace"/>
                         <viewLayoutGuide key="safeArea" id="2jO-y3-j5Z"/>
                     </view>
-                    <tabBarItem key="tabBarItem" title="Settings" id="RVp-l4-tQh" userLabel="Settings"/>
+                    <tabBarItem key="tabBarItem" title="Settings" image="setting" landscapeImage="setting" id="RVp-l4-tQh" userLabel="Settings"/>
                     <connections>
                         <outlet property="colorLabel" destination="eDG-BF-EPt" id="DFH-JM-vba"/>
                         <outlet property="dropMenu" destination="TIv-6Y-uik" id="u9e-bb-bWB"/>
-                        <outlet property="fontBox" destination="g2I-GH-h3V" id="nrD-0S-qoe"/>
                         <outlet property="fontLabel" destination="zf9-DO-3R9" id="gAr-fk-wr4"/>
                         <outlet property="fontPicker" destination="Bif-Cf-G9G" id="tC1-JR-r2m"/>
                         <outlet property="fontSize" destination="8Bv-Ph-Sit" id="D4h-OV-CCL"/>
                         <outlet property="fontSlider" destination="2Jc-4L-ZV2" id="Cm2-xi-wNj"/>
-                        <outlet property="textBox" destination="IBD-Me-XXq" id="LMh-cU-JWG"/>
                     </connections>
                 </viewController>
                 <placeholder placeholderIdentifier="IBFirstResponder" id="qZI-zq-XqB" userLabel="First Responder" sceneMemberID="firstResponder"/>
@@ -817,11 +795,11 @@
             </objects>
             <point key="canvasLocation" x="-2930" y="681"/>
         </scene>
-        <!--Home-->
+        <!--Dish List-->
         <scene sceneID="V0U-nt-X0L">
             <objects>
                 <navigationController automaticallyAdjustsScrollViewInsets="NO" id="jOu-JH-RZI" sceneMemberID="viewController">
-                    <tabBarItem key="tabBarItem" title="Home" id="IKY-EC-KyQ"/>
+                    <tabBarItem key="tabBarItem" title="Dish List" image="foodTabBar" landscapeImage="foodTabBar" id="IKY-EC-KyQ"/>
                     <toolbarItems/>
                     <navigationBar key="navigationBar" contentMode="scaleToFill" insetsLayoutMarginsFromSafeArea="NO" id="YAP-zk-rUo">
                         <rect key="frame" x="0.0" y="20" width="375" height="44"/>
@@ -836,11 +814,11 @@
             </objects>
             <point key="canvasLocation" x="448.80000000000001" y="-143.47826086956522"/>
         </scene>
-        <!--Dish List-->
+        <!--Grocery List-->
         <scene sceneID="dk6-mD-5pQ">
             <objects>
                 <navigationController automaticallyAdjustsScrollViewInsets="NO" id="QMS-gf-S4s" sceneMemberID="viewController">
-                    <tabBarItem key="tabBarItem" title="Dish List" image="Cart.png" landscapeImage="Cart" selectedImage="Cart" id="sdl-rQ-Ggq"/>
+                    <tabBarItem key="tabBarItem" title="Grocery List" image="cart" landscapeImage="cart" selectedImage="cart" id="sdl-rQ-Ggq"/>
                     <toolbarItems/>
                     <navigationBar key="navigationBar" contentMode="scaleToFill" insetsLayoutMarginsFromSafeArea="NO" id="UTX-P0-I6F">
                         <rect key="frame" x="0.0" y="20" width="375" height="44"/>
@@ -857,12 +835,14 @@
         </scene>
     </scenes>
     <resources>
-        <image name="Cart" width="16" height="16"/>
-        <image name="Cart.png" width="16" height="16"/>
         <image name="box" width="300" height="300"/>
+        <image name="calculator" width="25" height="25"/>
+        <image name="cart" width="34" height="29"/>
         <image name="checkBox" width="512" height="512"/>
+        <image name="foodTabBar" width="65" height="36"/>
+        <image name="setting" width="33" height="33"/>
     </resources>
     <inferredMetricsTieBreakers>
-        <segue reference="qPy-Hd-ROp"/>
+        <segue reference="a4S-dt-KYR"/>
     </inferredMetricsTieBreakers>
 </document>

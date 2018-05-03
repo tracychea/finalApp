@@ -117,9 +117,7 @@ class AddDishViewController: UIViewController, UITableViewDataSource, UITableVie
         return cell
     }
     
-    @IBAction func ingredientToDish(_ sender: UIButton) {
-        print(ingredientInput.text!)
-        
+    @IBAction func ingredientToDish(_ sender: UIButton) {        
         if ingredientInput.text! != "" {
             if ingredients.contains(ingredientInput.text!){
                 let alert2 = UIAlertController(title: "Duplicate Ingredient", message: "Ingredient already exists in current dish", preferredStyle: .alert)

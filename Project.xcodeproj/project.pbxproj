@@ -7,7 +7,6 @@
 	objects = {
 
 /* Begin PBXBuildFile section */
-		54606195209AF541006C376C /* Asset 1.png in Resources */ = {isa = PBXBuildFile; fileRef = 54606194209AF541006C376C /* Asset 1.png */; };
 		547BC3BA206C70AB00F5D91A /* AppDelegate.swift in Sources */ = {isa = PBXBuildFile; fileRef = 547BC3B9206C70AB00F5D91A /* AppDelegate.swift */; };
 		547BC3BC206C70AB00F5D91A /* ViewController.swift in Sources */ = {isa = PBXBuildFile; fileRef = 547BC3BB206C70AB00F5D91A /* ViewController.swift */; };
 		547BC3BF206C70AB00F5D91A /* Main.storyboard in Resources */ = {isa = PBXBuildFile; fileRef = 547BC3BD206C70AB00F5D91A /* Main.storyboard */; };
@@ -33,7 +32,6 @@
 		54F5D6072096FA3C008AD034 /* settingServices.swift in Sources */ = {isa = PBXBuildFile; fileRef = 54F5D6052096FA3C008AD034 /* settingServices.swift */; };
 		54F5D60B2098174E008AD034 /* AddGroceryViewController.swift in Sources */ = {isa = PBXBuildFile; fileRef = 54F5D60A2098174D008AD034 /* AddGroceryViewController.swift */; };
 		54F5D60F20993919008AD034 /* settingViewController.swift in Sources */ = {isa = PBXBuildFile; fileRef = 54F5D60E20993919008AD034 /* settingViewController.swift */; };
-		54F5D617209AF022008AD034 /* cart.png in Resources */ = {isa = PBXBuildFile; fileRef = 54F5D616209AF021008AD034 /* cart.png */; };
 		71C552D342C4683A438D9974 /* Pods_Project.framework in Frameworks */ = {isa = PBXBuildFile; fileRef = 127707E21DC7B6E339AEB195 /* Pods_Project.framework */; };
 /* End PBXBuildFile section */
 
@@ -57,7 +55,6 @@
 /* Begin PBXFileReference section */
 		127707E21DC7B6E339AEB195 /* Pods_Project.framework */ = {isa = PBXFileReference; explicitFileType = wrapper.framework; includeInIndex = 0; path = Pods_Project.framework; sourceTree = BUILT_PRODUCTS_DIR; };
 		15CA54AEC3BF389429A46476 /* Pods-Project.debug.xcconfig */ = {isa = PBXFileReference; includeInIndex = 1; lastKnownFileType = text.xcconfig; name = "Pods-Project.debug.xcconfig"; path = "Pods/Target Support Files/Pods-Project/Pods-Project.debug.xcconfig"; sourceTree = "<group>"; };
-		54606194209AF541006C376C /* Asset 1.png */ = {isa = PBXFileReference; lastKnownFileType = image.png; name = "Asset 1.png"; path = "../../../../../var/folders/hm/5rhhtm012b997fw27bfznlh40000gp/T/com.apple.iChat/Messages/Transfers/Asset 1.png"; sourceTree = "<group>"; };
 		547BC3B6206C70AB00F5D91A /* Project.app */ = {isa = PBXFileReference; explicitFileType = wrapper.application; includeInIndex = 0; path = Project.app; sourceTree = BUILT_PRODUCTS_DIR; };
 		547BC3B9206C70AB00F5D91A /* AppDelegate.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = AppDelegate.swift; sourceTree = "<group>"; };
 		547BC3BB206C70AB00F5D91A /* ViewController.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = ViewController.swift; sourceTree = "<group>"; };
@@ -89,7 +86,6 @@
 		54F5D6052096FA3C008AD034 /* settingServices.swift */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.swift; name = settingServices.swift; path = "../../../Library/Messages/Attachments/a6/06/EBC28BBB-748C-412F-9BDF-C6F80160BA56/Project 2/Project/settingServices.swift"; sourceTree = "<group>"; };
 		54F5D60A2098174D008AD034 /* AddGroceryViewController.swift */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.swift; name = AddGroceryViewController.swift; path = "../../../Library/Messages/Attachments/ef/15/2C67196C-DC05-4F00-B20C-3B1FB9558E70/Project 3 final/Project/AddGroceryViewController.swift"; sourceTree = "<group>"; };
 		54F5D60E20993919008AD034 /* settingViewController.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = settingViewController.swift; sourceTree = "<group>"; };
-		54F5D616209AF021008AD034 /* cart.png */ = {isa = PBXFileReference; lastKnownFileType = image.png; name = cart.png; path = ../../cart.png; sourceTree = "<group>"; };
 		8155F8F8405093857A1B6578 /* Pods-Project.release.xcconfig */ = {isa = PBXFileReference; includeInIndex = 1; lastKnownFileType = text.xcconfig; name = "Pods-Project.release.xcconfig"; path = "Pods/Target Support Files/Pods-Project/Pods-Project.release.xcconfig"; sourceTree = "<group>"; };
 /* End PBXFileReference section */
 
@@ -148,7 +144,6 @@
 				54F5D6052096FA3C008AD034 /* settingServices.swift */,
 				547BC3B9206C70AB00F5D91A /* AppDelegate.swift */,
 				547BC3BB206C70AB00F5D91A /* ViewController.swift */,
-				54606194209AF541006C376C /* Asset 1.png */,
 				547BC3C3206C70AB00F5D91A /* Assets.xcassets */,
 				547BC3BD206C70AB00F5D91A /* Main.storyboard */,
 				547BC3C5206C70AB00F5D91A /* LaunchScreen.storyboard */,
@@ -160,7 +155,6 @@
 				547BC3FA207F14A600F5D91A /* ingredientList.swift */,
 				547BC3FE207F150300F5D91A /* IngredientTableViewController.swift */,
 				54F5D6022096EF45008AD034 /* GoogleService-Info.plist */,
-				54F5D616209AF021008AD034 /* cart.png */,
 				54D47F3F2092AE0E00A41D04 /* Dish */,
 				547BC3F2207EF05500F5D91A /* CalorieViewController.swift */,
 				54F5D60E20993919008AD034 /* settingViewController.swift */,
@@ -335,9 +329,7 @@
 			buildActionMask = 2147483647;
 			files = (
 				547BC3C7206C70AB00F5D91A /* LaunchScreen.storyboard in Resources */,
-				54F5D617209AF022008AD034 /* cart.png in Resources */,
 				54F5D6032096EF45008AD034 /* GoogleService-Info.plist in Resources */,
-				54606195209AF541006C376C /* Asset 1.png in Resources */,
 				547BC3C4206C70AB00F5D91A /* Assets.xcassets in Resources */,
 				547BC3BF206C70AB00F5D91A /* Main.storyboard in Resources */,
 			);

@@ -98,6 +98,7 @@ class DishInfoViewController: UIViewController, UITableViewDataSource, UITableVi
             
             postRef.child(i).setValue("")
         }
+        self.navigationController?.popToRootViewController(animated: true)
     }
 
     override func didReceiveMemoryWarning() {

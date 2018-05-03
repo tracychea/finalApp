@@ -18,11 +18,11 @@ class settingViewController: UIViewController,UIPickerViewDelegate,UIPickerViewD
         static var textString: String = ""
         static var sizeString: Int = 0
     }
+    var chosenColor: String?
+    var chosenFont: String?
     
     //screen info
-    @IBOutlet weak var textBox: UITextField!
     @IBOutlet weak var dropMenu: UIPickerView!
-    @IBOutlet weak var fontBox: UITextField!
     @IBOutlet weak var fontPicker: UIPickerView!
     @IBOutlet weak var fontSlider: UISlider!
     @IBOutlet weak var colorLabel: UILabel!
@@ -91,59 +91,38 @@ class settingViewController: UIViewController,UIPickerViewDelegate,UIPickerViewD
     func pickerView(_ pickerView: UIPickerView, didSelectRow row: Int, inComponent component: Int) {
         
         if (pickerView.tag == 1){
-            self.textBox.text = self.colorList[row]
+            self.chosenColor = self.colorList[row]
         }else{
-            self.fontBox.text = self.fontList[row]
+            self.chosenFont = self.fontList[row]
         }
         
     }
     
-    func textFieldDidBeginEditing(_ textField: UITextField) {
-        
-        if (textField.tag == 1){
-            if textField == self.textBox {
-                self.dropMenu.isHidden = false
-                //if you dont want the users to se the keyboard type:
-                
-                textField.endEditing(true)
-            }
-        }else{
-            if textField == self.fontBox {
-                self.fontPicker.isHidden = false
-                //if you dont want the users to se the keyboard type:
-                
-                textField.endEditing(true)
-            }
-        }
-        
-    }
     
     @IBAction func saveSetting(_ sender: Any) {
         
         //set color
-        if textBox.text == "Red"{
+        if chosenColor == "Red"{
             //fontTester.font = UIFont(name: font, size: 21)
             GlobalVariable.myString = "Red"
             self.view.backgroundColor = settingService.sharedService.backgroundColor;
             
         }
-        if textBox.text == "Blue"{
+        if chosenColor == "Blue"{
             GlobalVariable.myString = "Blue"
             self.view.backgroundColor = settingService.sharedService.backgroundColor;
         }
-        if textBox.text == "Gray"{
+        if chosenColor == "Gray"{
             GlobalVariable.myString = "Gray"
             self.view.backgroundColor = settingService.sharedService.backgroundColor;
         }
         
         //set font
-        if fontBox.text == "Lao MN"{
+        if chosenColor == "Lao MN"{
             GlobalVariable.textString = "Lao MN"
             GlobalVariable.sizeString = Int(CGFloat(fontSlider.value * 20.0))
             //var fontValue2 = UIFont(name: "LaoSangamMN", size: 15.0)
             //  settingService.sharedService.fontStyle = fontValue2!;
-            self.textBox.font = settingService.sharedService.fontStyle;
-            self.fontBox.font = settingService.sharedService.fontStyle;
             self.fontSize.font = settingService.sharedService.fontStyle;
             self.fontLabel.font = settingService.sharedService.fontStyle;
             self.colorLabel.font = settingService.sharedService.fontStyle;
@@ -151,13 +130,11 @@ class settingViewController: UIViewController,UIPickerViewDelegate,UIPickerViewD
             UITextView.appearance().font = settingService.sharedService.fontStyle;
             UITextField.appearance().font = settingService.sharedService.fontStyle;
         }
-        if fontBox.text == "Avenir"{
+        if chosenFont == "Avenir"{
             GlobalVariable.textString = "Avenir"
             GlobalVariable.sizeString = Int(CGFloat(fontSlider.value * 20.0))
             //   var fontValue1 = UIFont(name: "HelveticaNeue", size: 15.0)
             //    settingService.sharedService.fontStyle = fontValue1!;
-            self.textBox.font = settingService.sharedService.fontStyle;
-            self.fontBox.font = settingService.sharedService.fontStyle;
             self.fontSize.font = settingService.sharedService.fontStyle;
             self.fontLabel.font = settingService.sharedService.fontStyle;
             self.colorLabel.font = settingService.sharedService.fontStyle;
@@ -165,14 +142,12 @@ class settingViewController: UIViewController,UIPickerViewDelegate,UIPickerViewD
             UITextView.appearance().font = settingService.sharedService.fontStyle;
             UITextField.appearance().font = settingService.sharedService.fontStyle;
         }
-        if fontBox.text == "Damascus"{
+        if chosenFont == "Damascus"{
             GlobalVariable.textString = "Damascus"
             GlobalVariable.sizeString = Int(CGFloat(fontSlider.value * 20.0))
 
             //  var fontValue = UIFont(name: "DamascusLight", size: 15.0)
             //  settingService.sharedService.fontStyle = fontValue!;
-            self.textBox.font = settingService.sharedService.fontStyle;
-            self.fontBox.font = settingService.sharedService.fontStyle;
             self.fontSize.font = settingService.sharedService.fontStyle;
             self.fontLabel.font = settingService.sharedService.fontStyle;
             self.colorLabel.font = settingService.sharedService.fontStyle;
@@ -180,6 +155,8 @@ class settingViewController: UIViewController,UIPickerViewDelegate,UIPickerViewD
             UITextView.appearance().font = settingService.sharedService.fontStyle;
             UITextField.appearance().font = settingService.sharedService.fontStyle;
         }
+        colorLabel.text = chosenColor
+        fontLabel.text = chosenFont
     }
     @IBAction func sliderSize(_ sender: AnyObject) {
         self.fontSize.font = UIFont.systemFont(ofSize: CGFloat(fontSlider.value * 20.0))
