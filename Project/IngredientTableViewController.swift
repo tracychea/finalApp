@@ -131,7 +131,7 @@ class IngredientTableViewController: UITableViewController {
     @IBAction func deleteIngredient (_ingredientList:Any) {
         
         guard let uid = Auth.auth().currentUser?.uid else {return}
-        var postRef = Database.database().reference().child("users/profile/\(uid)")
+        var postRef = Database.database().reference().child("users/profile/\(uid)/Grocery List")
         
         var refHandle = postRef.observe(.value, with: { (snapshot) in
             if var postDict = snapshot.value as? [String : AnyObject]{
@@ -139,12 +139,7 @@ class IngredientTableViewController: UITableViewController {
                 
                 
                 for i in postDict.keys{
-                    print(i)
-                    if i == "Grocery List"{
-                        postRef.child("Grocery List").removeValue()
-                        self.ingredient = []
-                        
-                    }
+                    postRef.child(i).removeValue()
  
                 }
                 //postRef.child("Grocery List").setValue(["abc":""])
