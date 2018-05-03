@@ -30,7 +30,7 @@ class AddDishViewController: UIViewController, UITableViewDataSource, UITableVie
     @IBOutlet weak var ingredientTable: UITableView!
     @IBOutlet weak var imageView: UIImageView!
     
-    let orderedImages: [String] = ["Chicken.png", "Beef.png", "Pork.png", "Vegetarian.png", "Turkey.png", "Fish.png"]
+    let orderedImages: [String] = ["Chicken.png", "Beef.png", "Pork.png", "Vegetarian.png", "Turkey.png", "Fish.png", "cookies.png", "cakes.png"]
     
     var pageIndex:Int = 0
     var strPhotoName:String!

@@ -125,20 +125,20 @@
                                             <nil key="textColor"/>
                                             <nil key="highlightedColor"/>
                                         </label>
-                                        <button opaque="NO" contentMode="scaleToFill" fixedFrame="YES" contentHorizontalAlignment="center" contentVerticalAlignment="center" lineBreakMode="middleTruncation" translatesAutoresizingMaskIntoConstraints="NO" id="xST-Rc-S6j" userLabel="box">
-                                            <rect key="frame" x="331" y="2" width="38" height="38"/>
-                                            <autoresizingMask key="autoresizingMask" flexibleMaxX="YES" flexibleMaxY="YES"/>
-                                            <state key="normal" image="box"/>
-                                            <connections>
-                                                <action selector="checkButton:" destination="XhF-nh-lJj" eventType="touchUpInside" id="bvn-DA-cVc"/>
-                                            </connections>
-                                        </button>
                                         <button opaque="NO" contentMode="scaleToFill" fixedFrame="YES" contentHorizontalAlignment="center" contentVerticalAlignment="center" lineBreakMode="middleTruncation" translatesAutoresizingMaskIntoConstraints="NO" id="A4w-e6-4kq" userLabel="CheckButton">
                                             <rect key="frame" x="313" y="-17" width="75" height="77"/>
                                             <autoresizingMask key="autoresizingMask" flexibleMaxX="YES" flexibleMaxY="YES"/>
                                             <state key="normal" image="checkBox"/>
                                             <connections>
                                                 <action selector="uncheckButton:" destination="XhF-nh-lJj" eventType="touchUpInside" id="rZ8-7F-yfS"/>
+                                            </connections>
+                                        </button>
+                                        <button opaque="NO" contentMode="scaleToFill" fixedFrame="YES" contentHorizontalAlignment="center" contentVerticalAlignment="center" lineBreakMode="middleTruncation" translatesAutoresizingMaskIntoConstraints="NO" id="xST-Rc-S6j" userLabel="box">
+                                            <rect key="frame" x="331" y="2" width="38" height="38"/>
+                                            <autoresizingMask key="autoresizingMask" flexibleMaxX="YES" flexibleMaxY="YES"/>
+                                            <state key="normal" image="box"/>
+                                            <connections>
+                                                <action selector="checkButton:" destination="XhF-nh-lJj" eventType="touchUpInside" id="bvn-DA-cVc"/>
                                             </connections>
                                         </button>
                                     </subviews>

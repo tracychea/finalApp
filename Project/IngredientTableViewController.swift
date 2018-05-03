@@ -140,15 +140,18 @@ class IngredientTableViewController: UITableViewController {
                 
                 for i in postDict.keys{
                     postRef.child(i).removeValue()
- 
+                    
                 }
                 //postRef.child("Grocery List").setValue(["abc":""])
-                
+                self.ingredient.removeAll()
                 self.tableView.reloadData()
                 
             }else{
                 print("Didn't work")
+
+                
             }
+            
             
             
         })

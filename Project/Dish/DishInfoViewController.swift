@@ -49,7 +49,11 @@ class DishInfoViewController: UIViewController, UITableViewDataSource, UITableVi
             if let postDict = snapshot.value as? [String : AnyObject]{
                 
                 for i in postDict.keys{
-                    self.ingredientsArray.append(String(describing: i))
+                    if self.ingredientsArray.contains(i){
+                        continue
+                    }else{
+                        self.ingredientsArray.append(String(describing: i))
+                    }
                 }
                 
                 self.ingredientTable.reloadData()
