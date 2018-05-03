@@ -87,6 +87,9 @@ class DishInfoViewController: UIViewController, UITableViewDataSource, UITableVi
     
     func tableView(_ tableView: UITableView, commit editingStyle: UITableViewCellEditingStyle, forRowAt indexPath: IndexPath) {
         let item = self.ingredientsArray[indexPath.row]
+        guard let uid = Auth.auth().currentUser?.uid else {return}
+        var postRef = Database.database().reference().child("users/profile/\(uid)/Dish List/\(dish!)/ingredients List")
+        postRef.child(item).removeValue()
         self.ingredientsArray.remove(at: indexPath.row)
         self.ingredientTable.deleteRows(at: [indexPath], with: .automatic)
     }
