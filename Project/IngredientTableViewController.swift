@@ -38,33 +38,35 @@ class IngredientTableViewController: UITableViewController {
                 
             } else {
                 print("DOesnt work")
-               
+               /*
                 for i in 0...1{
                     Database.database().reference().child("users/profile/\(uid)/Grocery List").setValue("Grocery List")
                     continue
                 }
+                */
                 
                 
             }
         self.tableView.reloadData()
         })
-        /*var testHandle = postRef.observe(.value, with: { (snapshot) in
-             if let postDict = snapshot.value as? [String : AnyObject]{
-        if postDict.keys.isEmpty{
-            print("Went in ")
-            Database.database().reference().child("users/profile/\(uid)/Grocery List").updateChildValues(["Grocery List": ""])
-        } else {
-            print("Sorr bro")
-            print(postDict.keys)
+        tableView.allowsMultipleSelectionDuringEditing = true
+    }
+    override func tableView(_ tableView: UITableView, canEditRowAt indexPath: IndexPath) -> Bool {
+        return true
+    }
+    
+    override func tableView(_ tableView: UITableView, commit editingStyle: UITableViewCellEditingStyle, forRowAt indexPath: IndexPath) {
+        guard let uid = Auth.auth().currentUser?.uid else {return}
+        
+        let item = self.ingredient[indexPath.row]
             
-        }
+        
+        Database.database().reference().child("users/profile/\(uid)/Grocery List").child(item).removeValue()
+        self.ingredient.remove(at: indexPath.row)
+        self.tableView.deleteRows(at: [indexPath], with: .automatic)
+        
         
     }
-        }
-        )}*/
-    }
-    
-    
     
     override func viewWillAppear(_ animated: Bool) {
         super.viewWillAppear(animated)
