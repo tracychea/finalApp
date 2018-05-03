@@ -13,9 +13,14 @@ class LoginViewController: UIViewController {
     @IBOutlet weak var emailTextField: UITextField!
     @IBOutlet weak var passwordTextField: UITextField!
     
+    @IBOutlet weak var icon: UIImageView!
     override func viewDidLoad() {
         super.viewDidLoad()
         self.view.backgroundColor = settingService.sharedService.backgroundColor;
+        UILabel.appearance().font = settingService.sharedService.fontStyle;
+        UITextView.appearance().font = settingService.sharedService.fontStyle;
+        UITextField.appearance().font = settingService.sharedService.fontStyle;
+        icon.image = UIImage(named: "Asset 1.png")
         //self.navigationController?.isNavigationBarHidden = true
         // Do any additional setup after loading the view.
     }

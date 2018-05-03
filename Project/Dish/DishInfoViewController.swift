@@ -36,10 +36,12 @@ class DishInfoViewController: UIViewController, UITableViewDataSource, UITableVi
     
     override func viewDidLoad() {
         super.viewDidLoad()
-        
-  
-        
-        
+        self.view.backgroundColor = settingService.sharedService.backgroundColor;
+        UILabel.appearance().font = settingService.sharedService.fontStyle;
+        UITextView.appearance().font = settingService.sharedService.fontStyle;
+        UITextField.appearance().font = settingService.sharedService.fontStyle;
+        self.tabBarController?.tabBar.isHidden = true
+
         //ALL OF THIS IS TABLE VIEW V
         guard let uid = Auth.auth().currentUser?.uid else {return}
         var postRef = Database.database().reference().child("users/profile/\(uid)/Dish List/\(dish!)/ingredients List")
@@ -77,9 +79,19 @@ class DishInfoViewController: UIViewController, UITableViewDataSource, UITableVi
             })        }
         
         downloadPhoto()
-        
+        ingredientTable.allowsMultipleSelectionDuringEditing = true
     }
-
+    
+    func tableView(_ tableView: UITableView, canEditRowAt indexPath: IndexPath) -> Bool {
+        return true
+    }
+    
+    func tableView(_ tableView: UITableView, commit editingStyle: UITableViewCellEditingStyle, forRowAt indexPath: IndexPath) {
+        let item = self.ingredientsArray[indexPath.row]
+        self.ingredientsArray.remove(at: indexPath.row)
+        self.ingredientTable.deleteRows(at: [indexPath], with: .automatic)
+    }
+    
     @IBAction func addDishToGrocery(_ sender: Any) {
         guard let uid = Auth.auth().currentUser?.uid else {return}
         var postRef = Database.database().reference().child("users/profile/\(uid)/Grocery List")

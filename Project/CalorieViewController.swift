@@ -20,6 +20,9 @@ class CalorieViewController: UIViewController {
     override func viewDidLoad() {
         super.viewDidLoad()
         self.view.backgroundColor = settingService.sharedService.backgroundColor;
+        UILabel.appearance().font = settingService.sharedService.fontStyle;
+        UITextView.appearance().font = settingService.sharedService.fontStyle;
+        UITextField.appearance().font = settingService.sharedService.fontStyle;
 
         // Do any additional setup after loading the view.
     }

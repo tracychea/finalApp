@@ -23,6 +23,10 @@ class DishListTableViewController: UITableViewController {
         
         super.viewDidLoad()
         self.view.backgroundColor = settingService.sharedService.backgroundColor;
+        UILabel.appearance().font = settingService.sharedService.fontStyle;
+        UITextView.appearance().font = settingService.sharedService.fontStyle;
+        UITextField.appearance().font = settingService.sharedService.fontStyle;
+        
         guard let uid = Auth.auth().currentUser?.uid else {return}
         var postRef = Database.database().reference().child("users/profile/\(uid)/Dish List")
         var refHandle = postRef.observe(.value, with: { (snapshot) in

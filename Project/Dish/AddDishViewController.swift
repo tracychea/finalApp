@@ -45,6 +45,10 @@ class AddDishViewController: UIViewController, UITableViewDataSource, UITableVie
     override func viewDidLoad() {
         super.viewDidLoad()
         //createDataSource()
+        self.view.backgroundColor = settingService.sharedService.backgroundColor;
+        UILabel.appearance().font = settingService.sharedService.fontStyle;
+        UITextView.appearance().font = settingService.sharedService.fontStyle;
+        UITextField.appearance().font = settingService.sharedService.fontStyle;
         
       
         

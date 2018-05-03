@@ -23,8 +23,9 @@ class IngredientTableViewController: UITableViewController {
     override func viewDidLoad() {
         super.viewDidLoad()
         self.view.backgroundColor = settingService.sharedService.backgroundColor;
-        //var image : UIImage = UIImage(named:"box")!
-        //checkImage = UIImageView(image: image)
+        UILabel.appearance().font = settingService.sharedService.fontStyle;
+        UITextView.appearance().font = settingService.sharedService.fontStyle;
+        UITextField.appearance().font = settingService.sharedService.fontStyle;
         
         guard let uid = Auth.auth().currentUser?.uid else {return}
         var postRef = Database.database().reference().child("users/profile/\(uid)/Grocery List")
